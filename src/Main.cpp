@@ -38,9 +38,7 @@ int main(int argc, char** argv)
 		}
 	}
 
-	cin.ignore();
 	Console::pause("Press Enter to exit.");
 
 	return 0;
 }
-
