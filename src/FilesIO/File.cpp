@@ -1,6 +1,6 @@
 #include "File.h"
 
-void File::write(std::string filePath, std::vector<std::string> strings, WriteMode writeMode)
+void fw::File::write(std::string filePath, std::vector<std::string> strings, WriteMode writeMode)
 {
     std::ios_base::openmode openmode = std::ios_base::app;
     if (writeMode == WriteMode::WriteToEnd)
@@ -25,7 +25,7 @@ void File::write(std::string filePath, std::vector<std::string> strings, WriteMo
     fileOut.close();
 }
 
-std::vector<std::string> File::readLines(std::string filePath)
+std::vector<std::string> fw::File::readLines(std::string filePath)
 {
     std::vector<std::string> fileContent;
 

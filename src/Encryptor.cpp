@@ -1,8 +1,8 @@
 #include "Encryptor.h"
 
-long long Encryptor::encryptingKey = 256'128'303'404;
+long long fw::Encryptor::encryptingKey = 256'128'303'404;
 
-std::string Encryptor::encode(std::string text)
+std::string fw::Encryptor::encode(std::string text)
 {
 	for (char& symbol : text)
 	{
@@ -12,12 +12,12 @@ std::string Encryptor::encode(std::string text)
 
 	return text;
 }
-std::string Encryptor::encode(char text[])
+std::string fw::Encryptor::encode(char text[])
 {
 	return encode(std::string(text));
 }
 
-std::string Encryptor::decode(std::string text)
+std::string fw::Encryptor::decode(std::string text)
 {
 	for (char& symbol : text)
 	{
@@ -27,12 +27,12 @@ std::string Encryptor::decode(std::string text)
 
 	return text;
 }
-std::string Encryptor::decode(char text[])
+std::string fw::Encryptor::decode(char text[])
 {
 	return encode(std::string(text));
 }
 
-void Encryptor::generateKey(std::string text)
+void fw::Encryptor::generateKey(std::string text)
 {
 	long long keyValue = 0;
 
@@ -45,7 +45,7 @@ void Encryptor::generateKey(std::string text)
 
 	encryptingKey = keyValue;
 }
-void Encryptor::generateKey(char text[])
+void fw::Encryptor::generateKey(char text[])
 {
 	generateKey(std::string(text));
 }

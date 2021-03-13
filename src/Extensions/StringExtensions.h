@@ -6,8 +6,11 @@
 // For converting multi-byte text to wide string.
 #include <codecvt>
 
-std::vector<std::string> split(std::string text, char separator = ' ');
+namespace fw
+{
+    std::vector<std::string> split(std::string text, char separator = ' ');
 
-std::wstring stringToWstring(std::string text);
+    std::wstring stringToWstring(std::string text);
+}
 
 #endif // EXTENSIONS_H

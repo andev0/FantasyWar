@@ -1,6 +1,6 @@
 #include "LoginMenu.h"
 
-void LoginMenu::Show()
+void fw::LoginMenu::Show()
 {
 	bool authorizationSuccessful = false;
 

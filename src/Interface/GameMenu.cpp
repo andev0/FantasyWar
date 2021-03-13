@@ -1,17 +1,17 @@
 #include "GameMenu.h"
 
-GameMenu::GameMenu(std::string key, std::string name)
+fw::GameMenu::GameMenu(std::string key, std::string name)
 {
 	_key = key;
 	_name = name;
 }
 
-std::string GameMenu::getKey()
+std::string fw::GameMenu::getKey()
 {
 	return _key;
 }
 
-std::string GameMenu::getName()
+std::string fw::GameMenu::getName()
 {
 	return _name;
 }

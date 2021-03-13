@@ -8,12 +8,15 @@
 
 #include <string>
 
-class UpgradeMenu : public GameMenu
+namespace fw
 {
-public:
-	UpgradeMenu(std::string key, std::string name);
+	class UpgradeMenu : public GameMenu
+	{
+	public:
+		UpgradeMenu(std::string key, std::string name);
 
-	void Show() override;
-};
+		void Show() override;
+	};
+}
 
 #endif // UPGRADE_MENU_H

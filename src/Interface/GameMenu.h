@@ -5,18 +5,21 @@
 
 #include <string>
 
-class GameMenu
+namespace fw
 {
-public:
-	GameMenu(std::string key, std::string name);
+	class GameMenu
+	{
+	public:
+		GameMenu(std::string key, std::string name);
 
-	virtual void Show() = 0;
+		virtual void Show() = 0;
 
-	std::string getKey();
-	std::string getName();
-private:
-	std::string _key;
-	std::string _name;
-};
+		std::string getKey();
+		std::string getName();
+	private:
+		std::string _key;
+		std::string _name;
+	};
+}
 
 #endif // GAMEMENU_H

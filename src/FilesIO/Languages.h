@@ -10,25 +10,28 @@
 
 #include "Extensions/StringExtensions.h"
 
-class Languages
+namespace fw
 {
-public:
-	static std::string LANGUAGES_FOLDER;
+	class Languages
+	{
+	public:
+		static std::string LANGUAGES_FOLDER;
 
-	static std::wstring translate(std::string text);
+		static std::wstring translate(std::string text);
 
-	static void changeLanguage(std::string languageName);
+		static void changeLanguage(std::string languageName);
 
-	static std::vector<std::string> getLanguageFilesList();
-	
-	static std::vector<std::string> getLanguagesList();
+		static std::vector<std::string> getLanguageFilesList();
+		
+		static std::vector<std::string> getLanguagesList();
 
-private:
-	static std::string _currentLanguage;
+	private:
+		static std::string _currentLanguage;
 
-	static void addEnglishTranslation(std::string text);
+		static void addEnglishTranslation(std::string text);
 
-	static std::string getTranslation(std::string text);
-};
+		static std::string getTranslation(std::string text);
+	};
+}
 
 #endif // !LANGUAGES_H

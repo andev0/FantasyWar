@@ -1,11 +1,11 @@
 #include "ShopMenu.h"
 
-ShopMenu::ShopMenu(std::string key, std::string name) : GameMenu(key, name)
+fw::ShopMenu::ShopMenu(std::string key, std::string name) : GameMenu(key, name)
 {
 
 }
 
-void ShopMenu::Show()
+void fw::ShopMenu::Show()
 {
-	Console::printMessage("SHOP!");
+	fw::Console::printMessage("SHOP!");
 }

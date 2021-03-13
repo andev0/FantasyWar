@@ -5,10 +5,13 @@
 
 #include <fstream>
 
-class LoginMenu
+namespace fw
 {
-public:
-	void Show();
-};
+	class LoginMenu
+	{
+	public:
+		void Show();
+	};
+}
 
 #endif // LOGIN_MENU_H

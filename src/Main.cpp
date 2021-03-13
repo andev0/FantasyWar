@@ -11,6 +11,7 @@
 #include "FilesIO/Languages.h"
 
 using namespace std;
+using namespace fw;
 
 int main(int argc, char** argv)
 {

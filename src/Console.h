@@ -11,17 +11,20 @@
 #include <cstdlib>
 #include <limits>
 
-class Console
+namespace fw
 {
-public:
-	static void printMessage(std::string message);
-	static void debugPrint(std::string message);
+	class Console
+	{
+	public:
+		static void printMessage(std::string message);
+		static void debugPrint(std::string message);
 
-	static std::string dialogMessage(std::string message, 
-	                                 std::vector<std::string> alternatives = {});
+		static std::string dialogMessage(std::string message, 
+										std::vector<std::string> alternatives = {});
 
-	static void pause(std::string message = "Press Enter to continue.");
-	static void clear();
-};
+		static void pause(std::string message = "Press Enter to continue.");
+		static void clear();
+	};
+}
 
 #endif // CONSOLE_H

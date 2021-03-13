@@ -3,14 +3,14 @@
 namespace fs = std::filesystem;
 
 // Folder with .lang files for importing translations.
-std::string	Languages::LANGUAGES_FOLDER = "Languages\\";
+std::string	fw::Languages::LANGUAGES_FOLDER = "Languages\\";
 
-std::string Languages::_currentLanguage = "English";
+std::string fw::Languages::_currentLanguage = "English";
 
 // Function for translating text to current game's language.
 // If translation file not contains needed string so function will return
 // recieved argument.
-std::wstring Languages::translate(std::string text)
+std::wstring fw::Languages::translate(std::string text)
 {
     std::string langFilePath = LANGUAGES_FOLDER + _currentLanguage + ".lang";
 
@@ -36,7 +36,7 @@ std::wstring Languages::translate(std::string text)
     }
 }
 
-void Languages::changeLanguage(std::string languageName)
+void fw::Languages::changeLanguage(std::string languageName)
 {
     for (std::string& language : getLanguagesList())
     {
@@ -70,7 +70,7 @@ void Languages::changeLanguage(std::string languageName)
     }
 }
 
-std::vector<std::string> Languages::getLanguageFilesList()
+std::vector<std::string> fw::Languages::getLanguageFilesList()
 {
     std::vector<std::string> filesPaths;
     std::string filesPath = fs::current_path().string() + "\\" + LANGUAGES_FOLDER;
@@ -85,7 +85,7 @@ std::vector<std::string> Languages::getLanguageFilesList()
     return filesPaths;
 }
 
-std::vector<std::string> Languages::getLanguagesList()
+std::vector<std::string> fw::Languages::getLanguagesList()
 {
     std::vector<std::string> filesPaths = Languages::getLanguageFilesList();
 
@@ -103,7 +103,7 @@ std::vector<std::string> Languages::getLanguagesList()
 }
 
 // Function for adding new English string translation into the English.lang file.
-void Languages::addEnglishTranslation(std::string text)
+void fw::Languages::addEnglishTranslation(std::string text)
 {
     std::string langFilePath = LANGUAGES_FOLDER + "English.lang";
     std::ifstream fileIn(langFilePath);
@@ -136,7 +136,7 @@ void Languages::addEnglishTranslation(std::string text)
     fileOut.close();
 }
 
-std::string Languages::getTranslation(std::string text)
+std::string fw::Languages::getTranslation(std::string text)
 {
     std::string langFilePath = LANGUAGES_FOLDER + _currentLanguage + ".lang";
     std::ifstream fileIn(langFilePath);

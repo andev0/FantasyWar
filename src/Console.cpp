@@ -1,18 +1,18 @@
 #include "Console.h"
 
-void Console::printMessage(std::string message)
+void fw::Console::printMessage(std::string message)
 {
 	std::wcout << Languages::translate(message) << "\n";
 }
 
-void Console::debugPrint(std::string message)
+void fw::Console::debugPrint(std::string message)
 {
 #ifdef DEBUG
 	std::cout << message << "\n";
 #endif // DEBUG
 }
 
-std::string Console::dialogMessage(std::string message, std::vector<std::string> alternatives)
+std::string fw::Console::dialogMessage(std::string message, std::vector<std::string> alternatives)
 {
 	std::string answer;
 
@@ -30,7 +30,7 @@ std::string Console::dialogMessage(std::string message, std::vector<std::string>
 	return answer;
 }
 
-void Console::clear()
+void fw::Console::clear()
 {
 #if _WINDOWS
 	std::system("cls");
@@ -39,7 +39,7 @@ void Console::clear()
 #endif
 }
 
-void Console::pause(std::string message)
+void fw::Console::pause(std::string message)
 {
 	if (message != "")
 	{

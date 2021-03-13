@@ -1,6 +1,6 @@
 #include "StringExtensions.h"
 
-std::vector<std::string> split(std::string text, char separator)
+std::vector<std::string> fw::split(std::string text, char separator)
 {
 	std::vector<std::string> strings;
 
@@ -27,7 +27,7 @@ std::vector<std::string> split(std::string text, char separator)
 	return strings;
 }
 
-std::wstring stringToWstring(std::string text)
+std::wstring fw::stringToWstring(std::string text)
 {
 	// Creating string converter from utf-8 to utf-16 (from string to wstring).
 	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;

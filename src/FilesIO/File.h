@@ -5,18 +5,22 @@
 #include <vector>
 #include <fstream>
 
-class File
+namespace fw
 {
-public:
-	enum class WriteMode
+	class File
 	{
-		RewriteFile,
-		WriteToEnd
-	};
+	public:
+		enum class WriteMode
+		{
+			RewriteFile,
+			WriteToEnd
+		};
 
-	static void write(std::string filePath, std::vector<std::string> strings, WriteMode writeMode = WriteMode::WriteToEnd);
-	
-	static std::vector<std::string> readLines(std::string filePath);
-};
+		static void write(std::string filePath, std::vector<std::string> strings, 
+						  WriteMode writeMode = WriteMode::WriteToEnd);
+		
+		static std::vector<std::string> readLines(std::string filePath);
+	};
+}
 
 #endif // FILE_H
