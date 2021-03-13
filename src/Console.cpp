@@ -43,7 +43,7 @@ void fw::Console::pause(std::string message)
 {
 	if (message != "")
 	{
-		std::cout << message << std::endl;
+		std::wcout << Languages::translate(message) << L"\n";
 	}
 
 	std::cin.clear();
