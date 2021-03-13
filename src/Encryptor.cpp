@@ -14,7 +14,7 @@ std::string Encryptor::encode(std::string text)
 }
 std::string Encryptor::encode(char text[])
 {
-	encode(std::string(text));
+	return encode(std::string(text));
 }
 
 std::string Encryptor::decode(std::string text)
@@ -29,7 +29,7 @@ std::string Encryptor::decode(std::string text)
 }
 std::string Encryptor::decode(char text[])
 {
-	encode(std::string(text));
+	return encode(std::string(text));
 }
 
 void Encryptor::generateKey(std::string text)
@@ -45,7 +45,7 @@ void Encryptor::generateKey(std::string text)
 
 	encryptingKey = keyValue;
 }
-void Encoder::generateKey(char text[])
+void Encryptor::generateKey(char text[])
 {
 	generateKey(std::string(text));
 }

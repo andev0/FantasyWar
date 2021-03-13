@@ -1,1 +1,5 @@
-/.vs/
+.vscode/
+bin/intermediates
+bin/*.exe
+bin/*.ilk
+bin/*pdb

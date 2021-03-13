@@ -5,7 +5,8 @@
 
 #include <string>
 
-#include "../GameMenu.h"
+#include "Interface/GameMenu.h"
+#include "Console.h"
 
 class ShopMenu : public GameMenu
 {

@@ -3,16 +3,14 @@
 #ifndef GAMEMENU_H
 #define GAMEMENU_H
 
-#include "../IOutputable.h"
-
 #include <string>
 
-class GameMenu : IOutputable
+class GameMenu
 {
 public:
 	GameMenu(std::string key, std::string name);
 
-	virtual void Show() override = 0;
+	virtual void Show() = 0;
 
 	std::string getKey();
 	std::string getName();

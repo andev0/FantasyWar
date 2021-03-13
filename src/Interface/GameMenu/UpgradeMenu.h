@@ -3,7 +3,8 @@
 #ifndef UPGRADE_MENU_H
 #define UPGRADE_MENU_H
 
-#include "../GameMenu.h"
+#include "Interface/GameMenu.h"
+#include "Console.h"
 
 #include <string>
 
