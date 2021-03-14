@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef GAMEMENU_H
-#define GAMEMENU_H
+#ifndef FW_GAMEMENU_H
+#define FW_GAMEMENU_H
 
 #include <string>
 
@@ -22,4 +22,4 @@ namespace fw
 	};
 }
 
-#endif // GAMEMENU_H
+#endif // !FW_GAMEMENU_H

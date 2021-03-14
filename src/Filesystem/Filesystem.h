@@ -21,4 +21,4 @@ namespace fw
     };
 }
 
-#endif // FW_FILESYSTEM_H
+#endif // !FW_FILESYSTEM_H

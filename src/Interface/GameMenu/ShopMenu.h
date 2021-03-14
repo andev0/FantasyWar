@@ -1,5 +1,5 @@
-#ifndef SHOP_MENU_H
-#define SHOP_MENU_H
+#ifndef FW_SHOP_MENU_H
+#define FW_SHOP_MENU_H
 
 #include <string>
 
@@ -17,4 +17,4 @@ namespace fw
 	};
 }
 
-#endif // SHOP_MENU_H
+#endif // !FW_SHOP_MENU_H

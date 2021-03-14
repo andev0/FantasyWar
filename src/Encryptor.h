@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef ENCRYPTOR_H
-#define ENCRYPTOR_H
+#ifndef FW_ENCRYPTOR_H
+#define FW_ENCRYPTOR_H
 
 #include <string>
 
@@ -23,4 +23,4 @@ namespace fw
 	};
 }
 
-#endif // ENCRYPTOR_H
+#endif // !FW_ENCRYPTOR_H

@@ -1,5 +1,5 @@
-#ifndef FILE_H
-#define FILE_H
+#ifndef FW_FILE_H
+#define FW_FILE_H
 
 #include <string>
 #include <vector>
@@ -23,4 +23,4 @@ namespace fw
 	};
 }
 
-#endif // FILE_H
+#endif // !FW_FILE_H

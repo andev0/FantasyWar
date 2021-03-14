@@ -1,5 +1,5 @@
-#ifndef LOGIN_MENU_H
-#define LOGIN_MENU_H
+#ifndef FW_LOGIN_MENU_H
+#define FW_LOGIN_MENU_H
 
 #include "Console.h"
 
@@ -14,4 +14,4 @@ namespace fw
 	};
 }
 
-#endif // LOGIN_MENU_H
+#endif // !FW_LOGIN_MENU_H

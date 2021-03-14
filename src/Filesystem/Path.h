@@ -21,4 +21,4 @@ namespace fw
     };
 }
 
-#endif // FW_PATH_H
+#endif // !FW_PATH_H

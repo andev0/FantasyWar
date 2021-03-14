@@ -1,5 +1,5 @@
-#ifndef EXTENSIONS_H
-#define EXTENSIONS_H
+#ifndef FW_EXTENSIONS_H
+#define FW_EXTENSIONS_H
 
 #include <string>
 #include <vector>
@@ -13,4 +13,4 @@ namespace fw
     std::wstring stringToWstring(std::string text);
 }
 
-#endif // EXTENSIONS_H
+#endif // !FW_EXTENSIONS_H

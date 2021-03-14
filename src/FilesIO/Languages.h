@@ -1,5 +1,5 @@
-#ifndef LANGUAGES_H
-#define LANGUAGES_H
+#ifndef FW_LANGUAGES_H
+#define FW_LANGUAGES_H
 
 #include <string>
 #include <vector>
@@ -24,7 +24,7 @@ namespace fw
 
 		static void changeLanguage(std::string languageName);
 
-		static std::vector<std::string> getLanguageFilesList();
+		static std::vector<std::string> getTranslationsPathes();
 		static std::vector<std::string> getLanguagesList();
 
 	private:
@@ -38,4 +38,4 @@ namespace fw
 	};
 }
 
-#endif // !LANGUAGES_H
+#endif // !FW_LANGUAGES_H

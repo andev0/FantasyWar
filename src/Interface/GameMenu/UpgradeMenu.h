@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef UPGRADE_MENU_H
-#define UPGRADE_MENU_H
+#ifndef FW_UPGRADE_MENU_H
+#define FW_UPGRADE_MENU_H
 
 #include "Interface/GameMenu.h"
 #include "Console.h"
@@ -19,4 +19,4 @@ namespace fw
 	};
 }
 
-#endif // UPGRADE_MENU_H
+#endif // !FW_UPGRADE_MENU_H

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CONSOLE_H
-#define CONSOLE_H
+#ifndef FW_CONSOLE_H
+#define FW_CONSOLE_H
 
 #include "FilesIO/Languages.h"
 
@@ -27,4 +27,4 @@ namespace fw
 	};
 }
 
-#endif // CONSOLE_H
+#endif // !FW_CONSOLE_H
