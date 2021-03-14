@@ -1,83 +1,73 @@
 #include "Languages.h"
 
 namespace fs = std::filesystem;
+using namespace fw;
 
-// Folder with .lang files for importing translations.
-std::string	fw::Languages::LANGUAGES_FOLDER = "Languages\\";
+const std::string Translations::NO_TRANSLATION = "@";
 
-std::string fw::Languages::_currentLanguage = "English";
+std::string Translations::_currentLanguage = "English";
+
+std::string Translations::getLanguagesFolder()
+{
+    return Path(Filesystem::getGameFolderPath() + "Languages\\");
+}
 
 // Function for translating text to current game's language.
 // If translation file not contains needed string so function will return
 // recieved argument.
-std::wstring fw::Languages::translate(std::string text)
+std::wstring Translations::translate(std::string text)
 {
-    std::string langFilePath = LANGUAGES_FOLDER + _currentLanguage + ".lang";
-
     addEnglishTranslation(text);
 
-    // If current language is English so no need to translate anything so just
-    // returning text argument.
-    if (_currentLanguage == "English")
+    std::string translation = getTranslation(text);
+
+    if (_currentLanguage == "English" || translation == NO_TRANSLATION)
     {
         return stringToWstring(text);
-    }
-
-    // Getting translation of text to current game language.
-    // If there is no translation, just returning text argument.
-    std::string translation = getTranslation(text);
-    if (translation != "")
-    {
-        return stringToWstring(translation);
     }
     else
     {
-        return stringToWstring(text);
+        return stringToWstring(translation);
     }
 }
 
-void fw::Languages::changeLanguage(std::string languageName)
+void Translations::changeLanguage(std::string languageName)
 {
-    for (std::string& language : getLanguagesList())
+    std::ifstream fileIn(getLanguagesFolder() + languageName + ".lang");
+    
+    if (fileIn.is_open())
     {
-        // If the required translation file is found.
-        if (languageName == language)
+        std::string line;
+
+        getline(fileIn, line);
+
+        // If file contains language code (e.g. "en") on the first line.
+        if (std::regex_match(line, std::regex("^([a-zA-Z]{2})$")))
         {
-            std::string langFilePath = LANGUAGES_FOLDER + language + ".lang";
-            std::ifstream fileIn(langFilePath);
-
-            if (fileIn.is_open())
-            {
-                std::string line;
-
-                getline(fileIn, line);
-
-                std::regex languageCodeRegex("([a-zA-Z]{2})", std::regex::ECMAScript);
-
-                // If file contains language code (e.g. "en") on the first line.
-                if (std::regex_match(line.begin(), line.end(), languageCodeRegex))
-                {
-                    // So switching locale to the required using a language code from file.
-                    setlocale(LC_ALL, line.c_str());
-                    _currentLanguage = languageName;
-                }
-            }
-
-            fileIn.close();
-
-            return;
+            // So switching locale to the required using a language code from file.
+            setlocale(LC_ALL, line.c_str());
+            _currentLanguage = languageName;
         }
+        else
+        {
+            Console::print("Wrong translation file format. Language code is missing or incorrect.");
+        }
+
+        fileIn.close();
+    }
+    else
+    {
+        Console::print("Can't open translation file.");
     }
 }
 
-std::vector<std::string> fw::Languages::getLanguageFilesList()
+std::vector<std::string> Translations::getTranslationsPathes()
 {
     std::vector<std::string> filesPaths;
-    std::string filesPath = fs::current_path().string() + "\\" + LANGUAGES_FOLDER;
 
     // Iterating over the directory's entries to get paths of all files in the 
     // Languages folder.
-    for (auto& entry : fs::directory_iterator(filesPath))
+    for (auto& entry : fs::directory_iterator(getLanguagesFolder()))
     {
         filesPaths.push_back(entry.path().string());
     }
@@ -85,15 +75,13 @@ std::vector<std::string> fw::Languages::getLanguageFilesList()
     return filesPaths;
 }
 
-std::vector<std::string> fw::Languages::getLanguagesList()
+std::vector<std::string> Translations::getLanguagesList()
 {
-    std::vector<std::string> filesPaths = Languages::getLanguageFilesList();
-
     std::vector<std::string> languageNames;
     
     // Splitting all of the translation files by the '\' separator.
     // Then getting Language name by cutting the file extension.
-    for (std::string& filePath : filesPaths)
+    for (std::string& filePath : getTranslationsPathes())
     {
         std::vector<std::string> splittedPath = split(filePath, '\\');
         languageNames.push_back(split(splittedPath.at(splittedPath.size() - 1), '.')[0]);
@@ -103,9 +91,9 @@ std::vector<std::string> fw::Languages::getLanguagesList()
 }
 
 // Function for adding new English string translation into the English.lang file.
-void fw::Languages::addEnglishTranslation(std::string text)
+void Translations::addEnglishTranslation(std::string text)
 {
-    std::string langFilePath = LANGUAGES_FOLDER + "English.lang";
+    std::string langFilePath = getLanguagesFolder() + "English.lang";
     std::ifstream fileIn(langFilePath);
 
     // Searching for argument string in the English translation file.
@@ -136,9 +124,9 @@ void fw::Languages::addEnglishTranslation(std::string text)
     fileOut.close();
 }
 
-std::string fw::Languages::getTranslation(std::string text)
+std::string Translations::getTranslation(std::string text)
 {
-    std::string langFilePath = LANGUAGES_FOLDER + _currentLanguage + ".lang";
+    std::string langFilePath = getLanguagesFolder() + _currentLanguage + ".lang";
     std::ifstream fileIn(langFilePath);
 
     // Searching for line in English in the translation file.
@@ -152,13 +140,8 @@ std::string fw::Languages::getTranslation(std::string text)
             if (line == text)
             {
                 getline(fileIn, line);
-                if (line != "@") // @ means that translation isn't exist.
-                {
-                    // Returning translated string from file.
-                    return line;
-                }
                 
-                return "";
+                return line;
             }
         }
     }
@@ -170,7 +153,7 @@ std::string fw::Languages::getTranslation(std::string text)
     // If string to translate isn't exist so adding it on English and @ in the next line.
     if (fileOut.is_open())
     {
-        fileOut << text << "\n@\n"; // @ means that translation isn't exist.
+        fileOut << text << "\n" << NO_TRANSLATION << "\n"; // @ means that translation isn't exist.
     }
 
     fileOut.close();

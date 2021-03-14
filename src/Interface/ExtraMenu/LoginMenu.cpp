@@ -10,13 +10,13 @@ void fw::LoginMenu::Show()
 
 		// TODO: remake all this menu.
 
-		std::string nickname = Console::dialogMessage("Input your nickname");
+		std::string nickname = Console::dialog("Input your nickname");
 
 		std::ifstream fileInput("Saves\\" + nickname + ".save");
 
 		if (!fileInput.is_open())
 		{
-			std::string inputAnswer = Console::dialogMessage("It looks like there is no save file for this nickname.\n \
+			std::string inputAnswer = Console::dialog("It looks like there is no save file for this nickname.\n \
 															  Do you want to create character?",
 															  { "Yes (Create character).", "No (Enter other nickname)" });
 

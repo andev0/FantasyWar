@@ -1,8 +1,8 @@
 #include "Console.h"
 
-void fw::Console::printMessage(std::string message)
+void fw::Console::print(std::string message)
 {
-	std::wcout << Languages::translate(message) << "\n";
+	std::wcout << Translations::translate(message) << L"\n";
 }
 
 void fw::Console::debugPrint(std::string message)
@@ -12,15 +12,15 @@ void fw::Console::debugPrint(std::string message)
 #endif // DEBUG
 }
 
-std::string fw::Console::dialogMessage(std::string message, std::vector<std::string> alternatives)
+std::string fw::Console::dialog(std::string message, std::vector<std::string> alternatives)
 {
 	std::string answer;
 
-	std::wcout << Languages::translate(message) << "\n";
+	Console::print(message);
 
 	for (size_t alternativeIndex = 0; alternativeIndex < alternatives.size(); alternativeIndex++)
 	{
-		std::wcout << alternativeIndex << L". " << Languages::translate(alternatives[alternativeIndex]) << L"\n";
+		std::wcout << alternativeIndex << L". " << Translations::translate(alternatives[alternativeIndex]) << L"\n";
 	}
 
 	std::wcout << L"\n> ";
@@ -43,7 +43,7 @@ void fw::Console::pause(std::string message)
 {
 	if (message != "")
 	{
-		std::wcout << Languages::translate(message) << L"\n";
+		Console::print(message);
 	}
 
 	std::cin.clear();

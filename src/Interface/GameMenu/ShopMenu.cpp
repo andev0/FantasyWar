@@ -7,5 +7,5 @@ fw::ShopMenu::ShopMenu(std::string key, std::string name) : GameMenu(key, name)
 
 void fw::ShopMenu::Show()
 {
-	fw::Console::printMessage("SHOP!");
+	fw::Console::print("SHOP!");
 }

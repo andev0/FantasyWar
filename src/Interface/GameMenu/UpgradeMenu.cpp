@@ -7,5 +7,5 @@ fw::UpgradeMenu::UpgradeMenu(std::string key, std::string name) : GameMenu(key, 
 
 void fw::UpgradeMenu::Show()
 {
-	Console::printMessage("UPGRADE MENU!");
+	Console::print("UPGRADE MENU!");
 }

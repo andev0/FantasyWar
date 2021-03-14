@@ -8,28 +8,27 @@
 #include "Interface/GameMenu/UpgradeMenu.h"
 #include "Interface/ExtraMenu/LoginMenu.h"
 
+#include "Filesystem/Filesystem.h"
 #include "FilesIO/Languages.h"
-
-using namespace std;
-using namespace fw;
 
 int main(int argc, char** argv)
 {
-	Languages::changeLanguage("Russian");
+	fw::Filesystem::setGamePath(argv[0]);
+	fw::Translations::changeLanguage("Russian");
 
-	vector<GameMenu*> menus;
+	std::vector<fw::GameMenu*> menus;
 
-	menus.push_back(new ShopMenu("0", "Shop"));
-	menus.push_back(new UpgradeMenu("1", "Upgrade menu"));
+	menus.push_back(new fw::ShopMenu("0", "Shop"));
+	menus.push_back(new fw::UpgradeMenu("1", "Upgrade menu"));
 
-	vector<std::string> menuItems;
+	std::vector<std::string> menuItems;
 
 	for (size_t i = 0; i < menus.size(); i++)
 	{
 		menuItems.push_back(menus[i]->getName());
 	}
 
-	string inputKey = Console::dialogMessage("> Main menu <", menuItems);
+	std::string inputKey = fw::Console::dialog("> Main menu <", menuItems);
 
 	for (size_t i = 0; i < menus.size(); i++)
 	{
@@ -39,7 +38,7 @@ int main(int argc, char** argv)
 		}
 	}
 
-	Console::pause("Press Enter to exit.");
+	fw::Console::pause("Press Enter to exit.");
 
 	return 0;
 }

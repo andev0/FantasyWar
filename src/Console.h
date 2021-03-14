@@ -16,11 +16,11 @@ namespace fw
 	class Console
 	{
 	public:
-		static void printMessage(std::string message);
+		static void print(std::string message);
 		static void debugPrint(std::string message);
 
-		static std::string dialogMessage(std::string message, 
-										std::vector<std::string> alternatives = {});
+		static std::string dialog(std::string message, 
+								  std::vector<std::string> alternatives = {"Yes", "No"});
 
 		static void pause(std::string message = "Press Enter to continue.");
 		static void clear();
