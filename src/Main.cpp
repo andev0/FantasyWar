@@ -14,7 +14,7 @@
 int main(int argc, char** argv)
 {
 	fw::Filesystem::setGamePath(argv[0]);
-	fw::Translations::changeLanguage("Russian");
+	fw::Translations::changeLanguage("English");
 
 	std::vector<fw::GameMenu*> menus;
 

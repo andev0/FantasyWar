@@ -15,7 +15,7 @@ std::string Translations::getLanguagesFolder()
 // Function for translating text to current game's language.
 // If translation file not contains needed string so function will return
 // recieved argument.
-std::wstring Translations::translate(std::string text)
+std::string Translations::translate(std::string text)
 {
     addEnglishTranslation(text);
 
@@ -23,17 +23,17 @@ std::wstring Translations::translate(std::string text)
 
     if (_currentLanguage == "English" || translation == NO_TRANSLATION)
     {
-        return stringToWstring(text);
+        return text;
     }
     else
     {
-        return stringToWstring(translation);
+        return translation;
     }
 }
 
 void Translations::changeLanguage(std::string languageName)
 {
-    std::ifstream fileIn(getLanguagesFolder() + languageName + ".lang");
+    std::ifstream fileIn(getLanguagesFolder() + languageName + ".lang", std::ios_base::binary);
     
     if (fileIn.is_open())
     {
@@ -94,7 +94,7 @@ std::vector<std::string> Translations::getLanguagesList()
 void Translations::addEnglishTranslation(std::string text)
 {
     std::string langFilePath = getLanguagesFolder() + "English.lang";
-    std::ifstream fileIn(langFilePath);
+    std::ifstream fileIn(langFilePath, std::ios_base::binary);
 
     // Searching for argument string in the English translation file.
     // If it is found so it's nothing to do.
@@ -113,7 +113,7 @@ void Translations::addEnglishTranslation(std::string text)
 
     fileIn.close();
 
-    std::ofstream fileOut(langFilePath, std::ios_base::app);
+    std::ofstream fileOut(langFilePath, std::ios_base::app | std::ios_base::binary);
 
     // If argument string don't exist in the English translation file so we just add it.
     if (fileOut.is_open())
@@ -127,7 +127,7 @@ void Translations::addEnglishTranslation(std::string text)
 std::string Translations::getTranslation(std::string text)
 {
     std::string langFilePath = getLanguagesFolder() + _currentLanguage + ".lang";
-    std::ifstream fileIn(langFilePath);
+    std::ifstream fileIn(langFilePath, std::ios_base::binary);
 
     // Searching for line in English in the translation file.
     if (fileIn.is_open())
@@ -148,12 +148,12 @@ std::string Translations::getTranslation(std::string text)
 
     fileIn.close();
 
-    std::ofstream fileOut(langFilePath, std::ios_base::app);
+    std::ofstream fileOut(langFilePath, std::ios_base::app | std::ios_base::binary);
 
-    // If string to translate isn't exist so adding it on English and @ in the next line.
+    // If string to translate isn't exist so adding it on English and NO_TRANSLATION in the next line.
     if (fileOut.is_open())
     {
-        fileOut << text << "\n" << NO_TRANSLATION << "\n"; // @ means that translation isn't exist.
+        fileOut << '\n' << text << '\n' << NO_TRANSLATION << '\n';
     }
 
     fileOut.close();

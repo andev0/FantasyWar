@@ -8,7 +8,8 @@ std::vector<std::string> fw::split(std::string text, char separator)
 	{
 		size_t separatorPosition = text.find(separator);
 
-		// If no separator character is found, the delimiter position will contain std::string::npos.
+		// If no separator character is found, the delimiter position will 
+        // contain std::string::npos.
 		if (separatorPosition != std::string::npos)
 		{
 			// Adding a substring to the vector of splitted strings starting
@@ -27,12 +28,16 @@ std::vector<std::string> fw::split(std::string text, char separator)
 	return strings;
 }
 
+#ifdef WINDOWS
 std::wstring fw::stringToWstring(std::string text)
 {
+    std::wstring result = L"Can't convert";
+
 	// Creating string converter from utf-8 to utf-16 (from string to wstring).
 	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 	// Using this converter to do all the work.
-	std::wstring result = converter.from_bytes(text);
+	result = converter.from_bytes(text);
 
 	return result;
 }
+#endif

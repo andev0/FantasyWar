@@ -5,20 +5,20 @@ void fw::File::write(std::string filePath, std::vector<std::string> strings, Wri
     std::ios_base::openmode openmode = std::ios_base::app;
     if (writeMode == WriteMode::WriteToEnd)
     {
-        openmode = std::ios_base::app;
+        openmode = std::ios_base::app ;
     }
     else if (writeMode == WriteMode::RewriteFile)
     {
         openmode = std::ios_base::trunc;
     }
 
-    std::ofstream fileOut(filePath, openmode);
+    std::ofstream fileOut(filePath, openmode | std::ios_base::binary);
 
     if (fileOut.is_open())
     {
         for (std::string& line : strings)
         {
-            fileOut << line << "\n";
+            fileOut << line << '\n';
         }
     }
 
@@ -29,7 +29,7 @@ std::vector<std::string> fw::File::readLines(std::string filePath)
 {
     std::vector<std::string> fileContent;
 
-    std::ifstream fileIn(filePath);
+    std::ifstream fileIn(filePath, std::ios_base::binary);
 
     if (fileIn.is_open())
     {

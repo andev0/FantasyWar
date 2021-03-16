@@ -12,7 +12,7 @@ void fw::LoginMenu::Show()
 
 		std::string nickname = Console::dialog("Input your nickname");
 
-		std::ifstream fileInput("Saves\\" + nickname + ".save");
+		std::ifstream fileInput("Saves\\" + nickname + ".save", std::ios_base::binary);
 
 		if (!fileInput.is_open())
 		{

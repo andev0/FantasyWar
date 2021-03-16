@@ -2,13 +2,21 @@
 
 void fw::Console::print(std::string message)
 {
-	std::wcout << Translations::translate(message) << L"\n";
+#ifdef WINDOWS
+	std::wcout << stringToWstring(Translations::translate(message)) << L'\n';
+#else
+	std::cout << Translations::translate(message) << '\n';
+#endif // WINDOWS
 }
 
 void fw::Console::debugPrint(std::string message)
 {
 #ifdef DEBUG
-	std::cout << message << "\n";
+#ifdef WINDOWS
+	std::wcout << stringToWstring(message) << L'\n';
+#else
+	std::cout << message << '\n';
+#endif // WINDOWS
 #endif // DEBUG
 }
 
@@ -20,10 +28,20 @@ std::string fw::Console::dialog(std::string message, std::vector<std::string> al
 
 	for (size_t alternativeIndex = 0; alternativeIndex < alternatives.size(); alternativeIndex++)
 	{
-		std::wcout << alternativeIndex << L". " << Translations::translate(alternatives[alternativeIndex]) << L"\n";
+		std::string alternative = std::to_string(alternativeIndex) + ". " + 
+			Translations::translate(alternatives[alternativeIndex]);
+#ifdef WINDOWS
+		std::wcout << stringToWstring(alternative) << L'\n';
+#else
+		std::cout << alternative << '\n';
+#endif // WINDOWS
 	}
 
-	std::wcout << L"\n> ";
+#ifdef WINDOWS
+		std::wcout << L"\n> ";
+#else
+		std::cout << "\n> ";
+#endif // WINDOWS
 
 	std::cin >> answer;
 

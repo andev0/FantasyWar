@@ -1,6 +1,7 @@
 .vscode/
 bin/intermediates
 bin/*.exe
+bin/FantasyWar
 bin/*.ilk
 bin/*pdb
 Log.txt

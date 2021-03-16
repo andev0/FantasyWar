@@ -20,7 +20,7 @@ namespace fw
 	public:
 		static std::string getLanguagesFolder();
 
-		static std::wstring translate(std::string text);
+		static std::string translate(std::string text);
 
 		static void changeLanguage(std::string languageName);
 
