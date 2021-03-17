@@ -109,16 +109,16 @@ void Translations::addEnglishTranslation(std::string text)
                 return;
             }
         }
-    }
 
-    fileIn.close();
+        fileIn.close();
+    }
 
     std::ofstream fileOut(langFilePath, std::ios_base::app | std::ios_base::binary);
 
     // If argument string don't exist in the English translation file so we just add it.
     if (fileOut.is_open())
     {
-        fileOut << text << "\n\n";
+        fileOut << '\n' << text << '\n';
     }
 
     fileOut.close();
@@ -159,5 +159,5 @@ std::string Translations::getTranslation(std::string text)
     fileOut.close();
 
     // Returning empty string if translation wasn't found.
-    return "";
+    return NO_TRANSLATION;
 }

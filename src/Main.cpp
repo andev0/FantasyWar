@@ -11,12 +11,14 @@
 #include "Filesystem/Filesystem.h"
 #include "FilesIO/Languages.h"
 
+#include "Game/Player.h"
+
 int main(int argc, char** argv)
 {
 	fw::Filesystem::setGamePath(argv[0]);
-	fw::Translations::changeLanguage("English");
+	fw::Translations::changeLanguage("Russian");
 
-	std::vector<fw::GameMenu*> menus;
+	/* std::vector<fw::GameMenu*> menus;
 
 	menus.push_back(new fw::ShopMenu("0", "Shop"));
 	menus.push_back(new fw::UpgradeMenu("1", "Upgrade menu"));
@@ -36,7 +38,27 @@ int main(int argc, char** argv)
 		{
 			menus[i]->Show();
 		}
-	}
+	} */
+
+	fw::Entity enemy("Q/A", 9999, 12, 100);
+	fw::Player player("FejAleX", 14, 150);
+
+	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
+	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
+
+	fw::Console::print(player.getName() + " attacks " + enemy.getName());
+	player.attack(&enemy);
+
+	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
+	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
+
+	fw::Console::print(enemy.getName() + " attacks " + player.getName());
+	enemy.attack(&player);
+
+	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
+	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
+
+	/////////////////////////////////////
 
 	fw::Console::pause("Press Enter to exit.");
 
