@@ -6,61 +6,58 @@
 #include "Interface/GameMenu.h"
 #include "Interface/GameMenu/ShopMenu.h"
 #include "Interface/GameMenu/UpgradeMenu.h"
+#include "Interface/GameMenu/MobArena.h"
 #include "Interface/ExtraMenu/LoginMenu.h"
 
 #include "Filesystem/Filesystem.h"
-#include "FilesIO/Languages.h"
+#include "FilesIO/Translations.h"
 
 #include "Game/Player.h"
 
 int main(int argc, char** argv)
 {
-	fw::Filesystem::setGamePath(argv[0]);
-	fw::Translations::changeLanguage("Russian");
+    fw::Filesystem::setGamePath(argv[0]);
+    fw::Translations::changeLanguage("Russian");
 
-	/* std::vector<fw::GameMenu*> menus;
+    fw::Player player("Gamer", 10, 10);
 
-	menus.push_back(new fw::ShopMenu("0", "Shop"));
-	menus.push_back(new fw::UpgradeMenu("1", "Upgrade menu"));
+    std::vector<fw::GameMenu*> menus;
 
-	std::vector<std::string> menuItems;
+    menus.push_back(new fw::ShopMenu("1", "Shop"));
+    menus.push_back(new fw::UpgradeMenu("2", "Upgrade menu"));
+    menus.push_back(new fw::MobArena("3", "Mob arena"));
 
-	for (size_t i = 0; i < menus.size(); i++)
-	{
-		menuItems.push_back(menus[i]->getName());
-	}
+    std::vector<std::string> menuItems;
 
-	std::string inputKey = fw::Console::dialog("> Main menu <", menuItems);
+    for (size_t i = 0; i < menus.size(); i++)
+    {
+        menuItems.push_back(menus[i]->getName());
+    }
+    menuItems.insert(menuItems.begin(), "Exit");
 
-	for (size_t i = 0; i < menus.size(); i++)
-	{
-		if (menus[i]->getKey() == inputKey)
-		{
-			menus[i]->Show();
-		}
-	} */
+    while(true)
+    {
+        fw::Console::clear();
 
-	fw::Entity enemy("Q/A", 9999, 12, 100);
-	fw::Player player("FejAleX", 14, 150);
+        std::string inputKey = fw::Console::dialog("> " + fw::Translations::translate("Main menu") + " <", menuItems);
 
-	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
-	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
+        if (inputKey == "0")
+        {
+            break;
+        }
 
-	fw::Console::print(player.getName() + " " + fw::Translations::translate("attacks") + " " + enemy.getName());
-	player.attack(&enemy);
+        for (size_t i = 0; i < menus.size(); i++)
+        {
+            if (menus[i]->getKey() == inputKey)
+            {
+                menus[i]->Show(player);
+            }
+        }
+    }
 
-	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
-	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
+    fw::Console::clear();
+    fw::Console::pause(fw::Translations::translate("Press Enter to exit."));
+    fw::Console::clear();
 
-	fw::Console::print(enemy.getName() + " " + fw::Translations::translate("attacks") + " " + player.getName());
-	enemy.attack(&player);
-
-	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
-	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
-
-	/////////////////////////////////////
-
-	fw::Console::pause(fw::Translations::translate("Press Enter to exit."));
-
-	return 0;
+    return 0;
 }

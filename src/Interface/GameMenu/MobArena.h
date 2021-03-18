@@ -1,5 +1,5 @@
-#ifndef FW_SHOP_MENU_H
-#define FW_SHOP_MENU_H
+#ifndef FW_MOBARENA_H
+#define FW_MOBARENA_H
 
 #include <string>
 
@@ -8,13 +8,13 @@
 
 namespace fw
 {
-    class ShopMenu : public GameMenu
+    class MobArena : public GameMenu
     {
     public:
-        ShopMenu(std::string key, std::string name);
+        MobArena(std::string key, std::string name);
 
         void Show(Player& player) override;
     };
 }
 
-#endif // !FW_SHOP_MENU_H
+#endif //FW_MOBARENA_H

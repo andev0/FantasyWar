@@ -9,12 +9,7 @@ namespace fw
     {
     public:
         Player (std::string name, unsigned int attack, unsigned int maxHealth);
-
-        void increaseExperience(unsigned int expirience);
-        unsigned int getExperience();
-
-    protected:
-        unsigned int _expirience;
+        
     };
 }
 

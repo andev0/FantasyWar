@@ -51,3 +51,11 @@ unsigned int Entity::getHealth()
 {
     return _health;
 }
+
+void Entity::printStats() 
+{
+    Console::print(_name + " (" + std::to_string(_level) + " " + 
+                   Translations::translate("lvl") + " [" + std::to_string(_health) + 
+                   "/" + std::to_string(_maxHealth) + " " + 
+                   Translations::translate("hp") + "]"); // Entity (1 lvl) [50/100 hp]
+}

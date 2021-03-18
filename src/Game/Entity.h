@@ -23,6 +23,8 @@ namespace fw
         unsigned int getAttack();
         unsigned int getHealth();
 
+        void printStats();
+
     protected:
         std::string _name;
 

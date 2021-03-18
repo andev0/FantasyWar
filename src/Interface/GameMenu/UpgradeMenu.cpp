@@ -5,7 +5,7 @@ fw::UpgradeMenu::UpgradeMenu(std::string key, std::string name) : GameMenu(key, 
 
 }
 
-void fw::UpgradeMenu::Show()
+void fw::UpgradeMenu::Show(Player& player)
 {
-	Console::print("UPGRADE MENU!");
+    Console::print("UPGRADE MENU!");
 }

@@ -3,7 +3,7 @@
 #ifndef FW_CONSOLE_H
 #define FW_CONSOLE_H
 
-#include "FilesIO/Languages.h"
+#include "FilesIO/Translations.h"
 
 #include <vector>
 #include <string>
@@ -13,18 +13,18 @@
 
 namespace fw
 {
-	class Console
-	{
-	public:
-		static void print(std::string message);
-		static void debugPrint(std::string message);
+    class Console
+    {
+    public:
+        static void print(std::string message);
+        static void debugPrint(std::string message);
 
-		static std::string dialog(std::string message, 
-								  std::vector<std::string> alternatives = {"Yes", "No"});
+        static std::string dialog(std::string message, 
+                                  std::vector<std::string> alternatives = {"Yes", "No"});
 
-		static void pause(std::string message = "Press Enter to continue.");
-		static void clear();
-	};
+        static void pause(std::string message = "Press Enter to continue.");
+        static void clear();
+    };
 }
 
 #endif // !FW_CONSOLE_H

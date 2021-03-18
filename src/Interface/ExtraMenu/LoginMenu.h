@@ -7,11 +7,11 @@
 
 namespace fw
 {
-	class LoginMenu
-	{
-	public:
-		void Show();
-	};
+    class LoginMenu
+    {
+    public:
+        void Show();
+    };
 }
 
 #endif // !FW_LOGIN_MENU_H
