@@ -3,9 +3,9 @@
 void fw::Console::print(std::string message)
 {
 #ifdef WINDOWS
-	std::wcout << stringToWstring(Translations::translate(message)) << L'\n';
+	std::wcout << stringToWstring(message) << L'\n';
 #else
-	std::cout << Translations::translate(message) << '\n';
+	std::cout << message << '\n';
 #endif // WINDOWS
 }
 

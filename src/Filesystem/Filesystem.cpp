@@ -11,7 +11,7 @@ std::string fw::Filesystem::getGamePath()
 {
     if (_gamePath == "")
     {
-        fw::Console::print("Error: Filesystem::_gamePath not set.");
+        fw::Console::print(fw::Translations::translate("Error: Filesystem::_gamePath not set."));
     }
     return _gamePath;
 }

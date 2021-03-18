@@ -50,14 +50,14 @@ void Translations::changeLanguage(std::string languageName)
         }
         else
         {
-            Console::print("Wrong translation file format. Language code is missing or incorrect.");
+            Console::print(fw::Translations::translate("Wrong translation file format. Language code is missing or incorrect."));
         }
 
         fileIn.close();
     }
     else
     {
-        Console::print("Can't open translation file.");
+        Console::print(fw::Translations::translate("Can't open translation file."));
     }
 }
 

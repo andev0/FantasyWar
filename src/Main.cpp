@@ -46,13 +46,13 @@ int main(int argc, char** argv)
 	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
 	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
 
-	fw::Console::print(player.getName() + " attacks " + enemy.getName());
+	fw::Console::print(player.getName() + " " + fw::Translations::translate("attacks") + " " + enemy.getName());
 	player.attack(&enemy);
 
 	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
 	fw::Console::print(enemy.getName() + "\t[" + std::to_string(enemy.getHealth()) + "]");
 
-	fw::Console::print(enemy.getName() + " attacks " + player.getName());
+	fw::Console::print(enemy.getName() + " " + fw::Translations::translate("attacks") + " " + player.getName());
 	enemy.attack(&player);
 
 	fw::Console::print(player.getName() + "\t[" + std::to_string(player.getHealth()) + "]");
@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 
 	/////////////////////////////////////
 
-	fw::Console::pause("Press Enter to exit.");
+	fw::Console::pause(fw::Translations::translate("Press Enter to exit."));
 
 	return 0;
 }
