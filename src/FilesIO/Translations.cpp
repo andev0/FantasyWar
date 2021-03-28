@@ -1,5 +1,7 @@
 #include "Translations.h"
 
+#include "Extensions/Aliases.h"
+
 namespace fs = std::filesystem;
 using namespace fw;
 
@@ -41,23 +43,21 @@ void Translations::changeLanguage(std::string languageName)
 
         getline(fileIn, line);
 
-        // If file contains language code (e.g. "en") on the first line.
-        if (std::regex_match(line, std::regex("^([a-zA-Z]{2})$")))
+        // If language code is wrong so setlocale() returns null pointer.
+        if(setlocale(LC_ALL, line.c_str()) != nullptr)
         {
-            // So switching locale to the required using a language code from file.
-            setlocale(LC_ALL, line.c_str());
             _currentLanguage = languageName;
         }
         else
         {
-            Console::print(fw::Translations::translate("Wrong translation file format. Language code is missing or incorrect."));
+            Console::printLine(translate("Wrong translation file format. Language code is missing or incorrect."));
         }
 
         fileIn.close();
     }
     else
     {
-        Console::print(fw::Translations::translate("Can't open translation file."));
+        Console::printLine(translate("Can't open translation file."));
     }
 }
 

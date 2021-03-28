@@ -12,34 +12,40 @@
 #include "Filesystem/Filesystem.h"
 #include "FilesIO/Translations.h"
 
+#include "Extensions/Aliases.h"
+
 #include "Game/Player.h"
+
+using namespace fw;
 
 int main(int argc, char** argv)
 {
-    fw::Filesystem::setGamePath(argv[0]);
-    fw::Translations::changeLanguage("Russian");
+    Filesystem::setGamePath(argv[0]);
+    Translations::changeLanguage("Russian");
 
-    fw::Player player("Gamer", 10, 10);
+    Player player("Gamer", 5, 100);
 
-    std::vector<fw::GameMenu*> menus;
+    std::vector<GameMenu*> menus;
 
-    menus.push_back(new fw::ShopMenu("1", "Shop"));
-    menus.push_back(new fw::UpgradeMenu("2", "Upgrade menu"));
-    menus.push_back(new fw::MobArena("3", "Mob arena"));
+    menus.push_back(new ShopMenu("1", "Shop"));
+    menus.push_back(new UpgradeMenu("2", "Upgrade menu"));
+    menus.push_back(new MobArena("3", "Mob arena"));
 
     std::vector<std::string> menuItems;
+
+    menuItems.push_back("Exit");
 
     for (size_t i = 0; i < menus.size(); i++)
     {
         menuItems.push_back(menus[i]->getName());
     }
-    menuItems.insert(menuItems.begin(), "Exit");
 
     while(true)
     {
-        fw::Console::clear();
+        Console::clear();
 
-        std::string inputKey = fw::Console::dialog("> " + fw::Translations::translate("Main menu") + " <", menuItems);
+        std::string inputKey = Console::dialog(makeTitle("Main menu"), 
+                                               menuItems);
 
         if (inputKey == "0")
         {
@@ -50,14 +56,14 @@ int main(int argc, char** argv)
         {
             if (menus[i]->getKey() == inputKey)
             {
-                menus[i]->Show(player);
+                menus[i]->show(player);
             }
         }
     }
 
-    fw::Console::clear();
-    fw::Console::pause(fw::Translations::translate("Press Enter to exit."));
-    fw::Console::clear();
+    Console::clear();
+    Console::pause(translate("Press Enter to exit."));
+    Console::clear();
 
     return 0;
 }

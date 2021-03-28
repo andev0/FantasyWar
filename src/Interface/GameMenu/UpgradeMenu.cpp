@@ -1,11 +1,16 @@
 #include "UpgradeMenu.h"
 
+#include "Extensions/Aliases.h"
+
 fw::UpgradeMenu::UpgradeMenu(std::string key, std::string name) : GameMenu(key, name)
 {
 
 }
 
-void fw::UpgradeMenu::Show(Player& player)
+void fw::UpgradeMenu::show(Player& player)
 {
-    Console::print("UPGRADE MENU!");
+    fw::Console::clear();
+    fw::Console::printLine(translate("UPGRADE MENU!"));
+    fw::Console::printLine();
+    fw::Console::pause(translate("Press Enter to continue."));
 }

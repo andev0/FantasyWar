@@ -3,7 +3,14 @@
 
 #include <string>
 
+#include <fmt/format.h>
+
+#include "Extensions/StringExtensions.h"
+
+#include "Interface/MenuAction.h"
 #include "Interface/GameMenu.h"
+#include "Interface/Dialog.h"
+
 #include "Console.h"
 
 namespace fw
@@ -13,7 +20,13 @@ namespace fw
     public:
         MobArena(std::string key, std::string name);
 
-        void Show(Player& player) override;
+        void show(Player& player) override;
+
+    protected:
+        void fight(Player& player, Entity& enemy);
+
+        void printStats(Entity& target);
+
     };
 }
 

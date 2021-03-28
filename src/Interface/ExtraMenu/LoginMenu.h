@@ -10,7 +10,7 @@ namespace fw
     class LoginMenu
     {
     public:
-        void Show();
+        void show();
     };
 }
 

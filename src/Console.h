@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef FW_CONSOLE_H
 #define FW_CONSOLE_H
 
@@ -16,14 +14,16 @@ namespace fw
     class Console
     {
     public:
-        static void print(std::string message);
+        static void printLine(std::string message = "");
         static void debugPrint(std::string message);
 
         static std::string dialog(std::string message, 
-                                  std::vector<std::string> alternatives = {"Yes", "No"});
+                                  std::vector<std::string> alternatives);
 
-        static void pause(std::string message = "Press Enter to continue.");
+        static void pause(std::string message);
         static void clear();
+
+        static std::string makeTitle(std::string text);
     };
 }
 

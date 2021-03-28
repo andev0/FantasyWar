@@ -13,7 +13,7 @@ namespace fw
     public:
         UpgradeMenu(std::string key, std::string name);
 
-        void Show(Player& player) override;
+        void show(Player& player) override;
     };
 }
 

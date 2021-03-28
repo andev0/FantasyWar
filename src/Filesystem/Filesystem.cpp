@@ -1,5 +1,7 @@
 #include "Filesystem.h"
 
+#include "Extensions/Aliases.h"
+
 std::string fw::Filesystem::_gamePath = "";
 
 void fw::Filesystem::setGamePath(const char* path) 
@@ -11,7 +13,7 @@ std::string fw::Filesystem::getGamePath()
 {
     if (_gamePath == "")
     {
-        fw::Console::print(fw::Translations::translate("Error: Filesystem::_gamePath not set."));
+        fw::Console::printLine(translate("Error: Filesystem::_gamePath not set."));
     }
     return _gamePath;
 }

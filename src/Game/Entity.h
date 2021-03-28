@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include <fmt/format.h>
+
 #include "Console.h"
 
 namespace fw
@@ -22,8 +24,7 @@ namespace fw
         unsigned int getLevel();
         unsigned int getAttack();
         unsigned int getHealth();
-
-        void printStats();
+        unsigned int getMaxHealth();
 
     protected:
         std::string _name;

@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef FW_ENCRYPTOR_H
 #define FW_ENCRYPTOR_H
 

@@ -1,37 +1,33 @@
 en
 
-> Main menu <
+Main menu
 
 Shop
 
 Upgrade menu
 
-Press Enter to exit.
-
-Wrong translation file format. Language code is missing or incorrect.
-
 Mob arena
+
+Exit
+
+SHOP!
+
+UPGRADE MENU!
 
 Back
 
+Press Enter to exit.
+
+Press Enter to continue.
+
 Find mob
 
-hp
-
-lvl
+Fight
 
 Attack
 
-damage
+{0} ({1} level) [{2}/{3} health]
 
-by
+{0} attacks {1} by {2} damage.
 
-attacks
-
-You killed
-
-Main menu
-
-Fighting
-
-Exit
+You killed {0}.
