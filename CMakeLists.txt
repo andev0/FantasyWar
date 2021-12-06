@@ -14,7 +14,19 @@ aux_source_directory(src/UserInterface/Telegram SRC_TELEGRAM_UI_FOLDER)
 
 add_compile_options(-Wall -DFMT_HEADER_ONLY)
 
-    message("Building for Linux")
+set(targetPlatform Linux CACHE STRING "Target platform for building.")
+set_property(CACHE targetPlatform PROPERTY STRINGS Linux Windows Telegram)
+
+message("Building for " ${targetPlatform})
+
+if (targetPlatform STREQUAL Linux)
     add_compile_options(-DLINUX)
+elseif(targetPlatform STREQUAL Windows)
+    add_compile_options(-DWINDOWS)
+elseif(targetPlatform STREQUAL Telegram)
+    add_compile_options(-DTELEGRAM)
+else()
+    message("[Warning] Unknown target platform: " ${targetPlatform})
+endif()
 
 add_executable(${PROJECT_NAME} ${SRC_FOLDER} ${SRC_BASE_FOLDER} ${SRC_UI_FOLDER} ${SRC_LINUX_UI_FOLDER} ${SRC_WINDOWS_UI_FOLDER} ${SRC_TELEGRAM_UI_FOLDER})
