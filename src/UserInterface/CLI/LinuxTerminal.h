@@ -1,6 +1,6 @@
 #ifdef LINUX
-#ifndef FW_LINUXTERMINALUI_H
-#define FW_LINUXTERMINALUI_H
+#ifndef FW_LINUXTERMINAL_H
+#define FW_LINUXTERMINAL_H
 
 #include "UserInterface/UserInterface.h"
 
@@ -11,15 +11,15 @@
 
 namespace fw
 {
-    class LinuxTerminalUI : public UserInterface
+    class LinuxTerminal : public UserInterface
     {
     public:
-        LinuxTerminalUI();
+        LinuxTerminal();
 
         void print(std::string text) override;
 
     };
 }
 
-#endif //FW_LINUXTERMINALUI_H
+#endif //FW_LINUXTERMINAL_H
 #endif //LINUX

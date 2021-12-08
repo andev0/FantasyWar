@@ -13,6 +13,8 @@ namespace fw
 
         virtual void print(std::string text) = 0;
 
+        virtual ~UserInterface();
+
     };
 }
 

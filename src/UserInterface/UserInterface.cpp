@@ -6,4 +6,9 @@ namespace fw
     {
         
     }
+
+    UserInterface::~UserInterface()
+    {
+
+    }
 }

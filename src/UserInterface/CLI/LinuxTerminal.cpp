@@ -4,12 +4,12 @@
 
 namespace fw
 {
-    LinuxTerminalUI::LinuxTerminalUI() 
+    LinuxTerminal::LinuxTerminal() 
     {
         
     }
     
-    void LinuxTerminalUI::print(std::string text) 
+    void LinuxTerminal::print(std::string text) 
     {
         fmt::print(text);
     }

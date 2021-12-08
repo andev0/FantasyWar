@@ -10,7 +10,7 @@
 
 namespace fw
 {
-    WindowsConsoleUI::WindowsConsoleUI() 
+    WindowsConsole::WindowsConsole() 
     {
         SetConsoleCP(65001);
 
@@ -21,7 +21,7 @@ namespace fw
         SetConsoleMode(hOut, dwMode);
     }
     
-    void WindowsConsoleUI::print(std::string text) 
+    void WindowsConsole::print(std::string text) 
     {
         
     }

@@ -4,12 +4,12 @@
 
 namespace fw
 {
-    TelegramBotUI::TelegramBotUI() 
+    TelegramBot::TelegramBot() 
     {
         
     }
     
-    void TelegramBotUI::print(std::string text) 
+    void TelegramBot::print(std::string text) 
     {
         
     }

@@ -8,9 +8,8 @@ include_directories(dependencies/fmt-8.0.1/include src)
 aux_source_directory(src SRC_FOLDER)
 aux_source_directory(src/Base SRC_BASE_FOLDER)
 aux_source_directory(src/UserInterface SRC_UI_FOLDER)
-aux_source_directory(src/UserInterface/Linux SRC_LINUX_UI_FOLDER)
-aux_source_directory(src/UserInterface/Windows SRC_WINDOWS_UI_FOLDER)
-aux_source_directory(src/UserInterface/Telegram SRC_TELEGRAM_UI_FOLDER)
+aux_source_directory(src/UserInterface/CLI SRC_UI_CLI_FOLDER)
+aux_source_directory(src/UserInterface/Telegram SRC_UI_TELEGRAM_FOLDER)
 
 add_compile_options(-Wall -DFMT_HEADER_ONLY)
 
@@ -29,4 +28,4 @@ else()
     message("[Warning] Unknown target platform: " ${targetPlatform})
 endif()
 
-add_executable(${PROJECT_NAME} ${SRC_FOLDER} ${SRC_BASE_FOLDER} ${SRC_UI_FOLDER} ${SRC_LINUX_UI_FOLDER} ${SRC_WINDOWS_UI_FOLDER} ${SRC_TELEGRAM_UI_FOLDER})
+add_executable(${PROJECT_NAME} ${SRC_FOLDER} ${SRC_BASE_FOLDER} ${SRC_UI_FOLDER} ${SRC_UI_CLI_FOLDER} ${SRC_UI_TELEGRAM_FOLDER})
