@@ -15,7 +15,7 @@ aux_source_directory(src/UserInterface/Telegram SRC_TELEGRAM_UI_FOLDER)
 add_compile_options(-Wall -DFMT_HEADER_ONLY)
 
 set(targetPlatform Linux CACHE STRING "Target platform for building.")
-set_property(CACHE targetPlatform PROPERTY STRINGS Linux Windows Telegram)
+set_property(CACHE targetPlatform PROPERTY STRINGS "Linux" "Windows" "Telegram")
 
 message("Building for " ${targetPlatform})
 
