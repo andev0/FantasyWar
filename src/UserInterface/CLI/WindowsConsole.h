@@ -1,20 +1,20 @@
 #ifdef WINDOWS
-#ifndef FW_WINDOWSCMDUI_H
-#define FW_WINDOWSCMDUI_H
+#ifndef FW_WINDOWSCONSOLEUI_H
+#define FW_WINDOWSCONSOLEUI_H
 
 #include "UserInterface/UserInterface.h"
 
 namespace fw
 {
-    class WindowsCmdUI : public UserInterface
+    class WindowsConsoleUI : public UserInterface
     {
     public:
-        WindowsCmdUI();
+        WindowsConsoleUI();
         
         void print(std::string text) override;
     
     };
 }
 
-#endif //FW_WINDOWSCMDUI_H
+#endif //FW_WINDOWSCONSOLEUI_H
 #endif //WINDOWS

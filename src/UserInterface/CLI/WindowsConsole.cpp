@@ -1,6 +1,6 @@
 #ifdef WINDOWS
 
-#include "WindowsCmdUI.h"
+#include "WindowsConsole.h"
 
 #include <windows.h>
 
@@ -10,7 +10,7 @@
 
 namespace fw
 {
-    WindowsCmdUI::WindowsCmdUI() 
+    WindowsConsoleUI::WindowsConsoleUI() 
     {
         SetConsoleCP(65001);
 
@@ -21,7 +21,7 @@ namespace fw
         SetConsoleMode(hOut, dwMode);
     }
     
-    void WindowsCmdUI::print(std::string text) 
+    void WindowsConsoleUI::print(std::string text) 
     {
         
     }

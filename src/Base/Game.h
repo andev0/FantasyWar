@@ -5,9 +5,9 @@
 
 #include "UserInterface/UserInterface.h"
 
-#include "UserInterface/Linux/LinuxTerminalUI.h"
-#include "UserInterface/Windows/WindowsCmdUI.h"
-#include "UserInterface/Telegram/TelegramUI.h"
+#include "UserInterface/CLI/LinuxTerminal.h"
+#include "UserInterface/CLI/WindowsConsole.h"
+#include "UserInterface/Telegram/TelegramBot.h"
 
 namespace fw
 {

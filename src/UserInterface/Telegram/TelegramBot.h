@@ -1,20 +1,20 @@
 #ifdef TELEGRAM
-#ifndef FW_TELEGRAMUI_H
-#define FW_TELEGRAMUI_H
+#ifndef FW_TELEGRAMBOTUI_H
+#define FW_TELEGRAMBOTUI_H
 
 #include "UserInterface/UserInterface.h"
 
 namespace fw
 {
-    class TelegramUI : public UserInterface
+    class TelegramBotUI : public UserInterface
     {
     public:
-        TelegramUI();
+        TelegramBotUI();
         
         void print(std::string text) override;
 
     };
 }
 
-#endif //FW_TELEGRAMUI_H
+#endif //FW_TELEGRAMBOTUI_H
 #endif //TELEGRAM

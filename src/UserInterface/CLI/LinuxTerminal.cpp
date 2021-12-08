@@ -1,6 +1,6 @@
 #ifdef LINUX
 
-#include "LinuxTerminalUI.h"
+#include "LinuxTerminal.h"
 
 namespace fw
 {

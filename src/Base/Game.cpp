@@ -5,11 +5,11 @@ namespace fw
     void Game::start() 
     {
         #ifdef WINDOWS
-            _userInterface = new WindowsCmdUI();
+            _userInterface = new WindowsConsoleUI();
         #elif LINUX
             _userInterface = new LinuxTerminalUI();
         #elif TELEGRAM
-            _userInterface = new TelegramUI();
+            _userInterface = new TelegramBotUI();
         #else
             #error Unknown platform specified in build arguments.
         #endif //OS TYPE
