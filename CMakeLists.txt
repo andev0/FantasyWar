@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 
 project(FantasyWar)
 
-include_directories(dependencies/fmt-8.0.1/include src)
+include_directories(dependencies/fmt/include src)
 
 # Setting up directories with source files
 aux_source_directory(src SRC_FOLDER)
