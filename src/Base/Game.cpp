@@ -14,7 +14,7 @@ namespace fw
             #error Unknown platform specified in build arguments.
         #endif //OS TYPE
 
-        _userInterface->print("UI print\n");
+        _userInterface->displayText("UI print\n");
 
         delete _userInterface;
     }

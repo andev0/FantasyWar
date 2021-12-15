@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <map>
 
 namespace fw
 {
@@ -11,7 +12,7 @@ namespace fw
     public:
         UserInterface();
 
-        virtual void print(std::string text) = 0;
+        virtual void displayText(std::string text) = 0;
 
         virtual ~UserInterface();
 

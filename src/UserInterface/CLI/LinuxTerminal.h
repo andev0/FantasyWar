@@ -16,7 +16,7 @@ namespace fw
     public:
         LinuxTerminal();
 
-        void print(std::string text) override;
+        void displayText(std::string text) override;
 
     };
 }

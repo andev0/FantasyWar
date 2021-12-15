@@ -11,7 +11,7 @@ namespace fw
     public:
         TelegramBot();
         
-        void print(std::string text) override;
+        void displayText(std::string text) override;
 
     };
 }

@@ -21,7 +21,7 @@ namespace fw
         SetConsoleMode(hOut, dwMode);
     }
     
-    void WindowsConsole::print(std::string text) 
+    void WindowsConsole::displayText(std::string text) 
     {
         
     }

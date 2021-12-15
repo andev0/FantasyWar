@@ -9,7 +9,7 @@ namespace fw
         
     }
     
-    void LinuxTerminal::print(std::string text) 
+    void LinuxTerminal::displayText(std::string text) 
     {
         fmt::print(text);
     }

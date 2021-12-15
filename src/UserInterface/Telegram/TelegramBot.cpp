@@ -9,7 +9,7 @@ namespace fw
         
     }
     
-    void TelegramBot::print(std::string text) 
+    void TelegramBot::displayText(std::string text) 
     {
         
     }
