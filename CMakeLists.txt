@@ -10,6 +10,7 @@ aux_source_directory(src/Base SRC_BASE_FOLDER)
 aux_source_directory(src/UserInterface SRC_UI_FOLDER)
 aux_source_directory(src/UserInterface/CLI SRC_UI_CLI_FOLDER)
 aux_source_directory(src/UserInterface/Telegram SRC_UI_TELEGRAM_FOLDER)
+aux_source_directory(src/UserInterface/TextFormatting SRC_UI_TEXTFORMATTING_FOLDER)
 
 add_compile_options(-Wall -DFMT_HEADER_ONLY)
 
@@ -28,4 +29,9 @@ else()
     message("[Warning] Unknown target platform: " ${targetPlatform})
 endif()
 
-add_executable(${PROJECT_NAME} ${SRC_FOLDER} ${SRC_BASE_FOLDER} ${SRC_UI_FOLDER} ${SRC_UI_CLI_FOLDER} ${SRC_UI_TELEGRAM_FOLDER})
+add_executable(${PROJECT_NAME} ${SRC_FOLDER}
+                               ${SRC_BASE_FOLDER}
+                               ${SRC_UI_FOLDER}
+                               ${SRC_UI_CLI_FOLDER}
+                               ${SRC_UI_TELEGRAM_FOLDER}
+                               ${SRC_UI_TEXTFORMATTING_FOLDER})
