@@ -5,7 +5,8 @@
 #include <vector>
 #include <regex>
 
-#include "UserInterface/TextFormatting/FormattingTag.h"
+#include "UserInterface/TextFormatting/Tags/FormattingTag.h"
+#include "UserInterface/TextFormatting/Tags/ClosableFormattingTag.h"
 
 namespace fw
 {
@@ -17,9 +18,18 @@ namespace fw
         /// @ text - text to be formatted
         /// @ formattingTags - vector with definition of how tags should be replaced
         /// @ previousFormatting - Sequence that will be placed before text outside the tags    
-        static std::string formatText(std::string text, 
-                                      const std::vector<FormattingTag>& formattingTags,
-                                      std::string previousFormatting = "\e[0m");
+        static std::string formatText(
+            std::string text, 
+            const std::vector<FormattingTag>& formattingTags,
+            std::string previousFormatting = "\e[0m");
+
+        /// Method for replacing a string with formatting tags to a formatted string.
+        /// Arguments:
+        /// @ text - text to be formatted
+        /// @ formattingTags - vector with definition of how tags should be replaced 
+        static std::string formatText(
+            std::string text, 
+            const std::vector<ClosableFormattingTag>& formattingTags);
 
     private:
         static std::regex formattingTagRegex;
