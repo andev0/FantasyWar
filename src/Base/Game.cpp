@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include "UserInterface/TextFormatting/TextFormatter.h"
+
 namespace fw
 {
     void Game::start() 
@@ -14,7 +16,10 @@ namespace fw
             #error Unknown platform specified in build arguments.
         #endif //OS TYPE
 
-        _userInterface->displayText("UI print\n");
+        _userInterface->displayText(
+                TextFormatter::formatText("Some text with <red>red <yellow>and yellow</yellow></red> symbols!\n", {
+                    { {"red", "\e[31m", ""}, {"yellow", "\e[33m", ""} }
+            }));
 
         delete _userInterface;
     }
