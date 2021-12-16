@@ -3,11 +3,9 @@
 namespace fw
 {
     FormattingTag::FormattingTag(const std::string& name, 
-                                 const std::string& startingSequence, 
-                                 const std::string& endingSequence) 
+                                 const std::string& startingSequence) 
         : _name(name)
         , _startingSequence(startingSequence)
-        , _endingSequence(endingSequence)
     {}
     
     std::string FormattingTag::getName() const
@@ -18,10 +16,5 @@ namespace fw
     std::string FormattingTag::getStartingSequence() const
     {
         return _startingSequence;
-    }
-    
-    std::string FormattingTag::getEndingSequence() const
-    {
-        return _endingSequence;
     }
 }

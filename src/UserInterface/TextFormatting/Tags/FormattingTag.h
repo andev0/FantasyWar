@@ -9,19 +9,16 @@ namespace fw
     {
     public:
         FormattingTag(const std::string& name, 
-                      const std::string& startingSequence, 
-                      const std::string& endingSequence);
+                      const std::string& startingSequence);
 
         std::string getName() const;
 
         std::string getStartingSequence() const;
-        std::string getEndingSequence() const;
 
     private:
         std::string _name;
 
         std::string _startingSequence;
-        std::string _endingSequence;
 
     };
 }
