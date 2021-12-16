@@ -13,20 +13,22 @@ namespace fw
     class TextFormatter
     {
     public:
-        /// Method for replacing a string with formatting tags to a formatted string.
-        /// Arguments:
-        /// @ text - text to be formatted
-        /// @ formattingTags - vector with definition of how tags should be replaced
-        /// @ previousFormatting - Sequence that will be placed before text outside the tags    
+        /**
+         * Replaces a string with formatting tags to a formatted string.
+         * @param text text to be formatted.
+         * @param formattingTags vector with definition of how tags should be replaced.
+         * @param previousFormatting sequence that will be placed before text outside the tags.
+         */
         static std::string formatText(
             std::string text, 
             const std::vector<FormattingTag>& formattingTags,
             std::string previousFormatting = "\e[0m");
 
-        /// Method for replacing a string with formatting tags to a formatted string.
-        /// Arguments:
-        /// @ text - text to be formatted
-        /// @ formattingTags - vector with definition of how tags should be replaced 
+        /**
+         * Replaces a string with formatting tags to a formatted string.
+         * @param text text to be formatted.
+         * @param formattingTags vector with definition of how tags should be replaced.
+         */
         static std::string formatText(
             std::string text, 
             const std::vector<ClosableFormattingTag>& formattingTags);
