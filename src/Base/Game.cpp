@@ -28,12 +28,8 @@ namespace fw
         CliTextFormatter cliTextFormatter;
         TelegramTextFormatter telegramTextFormatter;
 
-        _userInterface->displayText(cliTextFormatter.format(
+        _userInterface->displayText(
             "<red>This is red <yellow>and yellow</yellow> text</red>! <green>Some green in addition.</green>\n"
-        ));
-
-        _userInterface->displayText(telegramTextFormatter.format(
-            "<bold>This is bold <italic>and italic</italic> text</bold>! <bold>Some bold in addition.</bold>\n"
-        ));
+        );
     }
 }

@@ -6,12 +6,17 @@ namespace fw
 {
     LinuxTerminal::LinuxTerminal() 
     {
-        
+        _textFormatter = new CliTextFormatter();
     }
     
     void LinuxTerminal::displayText(std::string text) 
     {
-        fmt::print(text);
+        fmt::print(_textFormatter->format(text));
+    }
+
+    LinuxTerminal::~LinuxTerminal()
+    {
+        delete _textFormatter;
     }
 }
 

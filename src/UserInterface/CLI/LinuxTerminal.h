@@ -9,12 +9,15 @@
 #include <fmt/format.h>
 #include <fmt/color.h>
 
+#include "UserInterface/TextFormatting/Formatters/CliTextFormatter.h"
+
 namespace fw
 {
     class LinuxTerminal : public UserInterface
     {
     public:
         LinuxTerminal();
+        ~LinuxTerminal();
 
         void displayText(std::string text) override;
 

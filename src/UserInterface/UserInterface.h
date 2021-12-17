@@ -5,6 +5,8 @@
 #include <iostream>
 #include <map>
 
+#include "UserInterface/TextFormatting/TextFormatter.h"
+
 namespace fw
 {
     class UserInterface
@@ -15,6 +17,9 @@ namespace fw
         virtual void displayText(std::string text) = 0;
 
         virtual ~UserInterface();
+
+    protected:
+        TextFormatter* _textFormatter;
 
     };
 }
