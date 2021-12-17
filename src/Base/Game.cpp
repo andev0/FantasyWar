@@ -5,7 +5,7 @@
 
 namespace fw
 {
-    void Game::start() 
+    Game::Game() 
     {
         #ifdef WINDOWS
             _userInterface = new WindowsConsole();
@@ -16,7 +16,15 @@ namespace fw
         #else
             #error Unknown platform specified in build arguments.
         #endif //OS TYPE
+    }
 
+    Game::~Game() 
+    {
+        delete _userInterface;
+    }
+
+    void Game::start() 
+    {
         CliTextFormatter cliTextFormatter;
         TelegramTextFormatter telegramTextFormatter;
 
@@ -27,7 +35,5 @@ namespace fw
         _userInterface->displayText(telegramTextFormatter.format(
             "<bold>This is bold <italic>and italic</italic></bold> text! <bold>Some bold in addition.</bold>\n"
         ));
-
-        delete _userInterface;
     }
 }

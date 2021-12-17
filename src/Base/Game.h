@@ -14,6 +14,9 @@ namespace fw
     class Game : public App
     {
     public:
+        Game();
+        ~Game() override;
+
         void start() override;
         
     private:

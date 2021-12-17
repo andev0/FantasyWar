@@ -6,6 +6,8 @@ namespace fw
     class App
     {
     public:
+        virtual ~App();
+
         virtual void start() = 0;
         
     };
