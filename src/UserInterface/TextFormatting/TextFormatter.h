@@ -2,39 +2,23 @@
 #define FW_TEXTFORMATTER_H
 
 #include <string>
-#include <vector>
 #include <regex>
-
-#include "UserInterface/TextFormatting/Tags/FormattingTag.h"
-#include "UserInterface/TextFormatting/Tags/ClosableFormattingTag.h"
 
 namespace fw
 {
     class TextFormatter
     {
     public:
-        /**
-         * Replaces a string with formatting tags to a formatted string.
-         * @param text text to be formatted.
-         * @param formattingTags vector with definition of how tags should be replaced.
-         * @param previousFormatting sequence that will be placed before text outside the tags.
-         */
-        static std::string formatText(
-            std::string text, 
-            const std::vector<FormattingTag>& formattingTags,
-            std::string previousFormatting = "\e[0m");
+        TextFormatter();
+        virtual ~TextFormatter();
 
-        /**
-         * Replaces a string with formatting tags to a formatted string.
-         * @param text text to be formatted.
-         * @param formattingTags vector with definition of how tags should be replaced.
-         */
-        static std::string formatText(
-            std::string text, 
-            const std::vector<ClosableFormattingTag>& formattingTags);
+        std::string format(std::string text);
 
-    private:
-        static std::regex formattingTagRegex;
+    protected:
+        std::regex _formattingTagRegex;
+
+        virtual std::string applyTag(const std::string& tagName, std::string text) = 0;
+
     };
 }
 

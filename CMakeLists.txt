@@ -12,6 +12,7 @@ aux_source_directory(src/UserInterface/CLI SRC_UI_CLI_FOLDER)
 aux_source_directory(src/UserInterface/Telegram SRC_UI_TELEGRAM_FOLDER)
 aux_source_directory(src/UserInterface/TextFormatting SRC_UI_TEXTFORMATTING_FOLDER)
 aux_source_directory(src/UserInterface/TextFormatting/Tags SRC_UI_TEXTFORMATTING_TAGS_FOLDER)
+aux_source_directory(src/UserInterface/TextFormatting/Formatters SRC_UI_TEXTFORMATTING_FORMATTERS_FOLDER)
 
 add_compile_options(-Wall -DFMT_HEADER_ONLY)
 
@@ -36,4 +37,5 @@ add_executable(${PROJECT_NAME} ${SRC_FOLDER}
                                ${SRC_UI_CLI_FOLDER}
                                ${SRC_UI_TELEGRAM_FOLDER}
                                ${SRC_UI_TEXTFORMATTING_FOLDER}
-                               ${SRC_UI_TEXTFORMATTING_TAGS_FOLDER})
+                               ${SRC_UI_TEXTFORMATTING_TAGS_FOLDER}
+                               ${SRC_UI_TEXTFORMATTING_FORMATTERS_FOLDER})
