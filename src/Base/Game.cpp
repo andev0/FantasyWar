@@ -29,11 +29,11 @@ namespace fw
         TelegramTextFormatter telegramTextFormatter;
 
         _userInterface->displayText(cliTextFormatter.format(
-            "<red>This is red <yellow>and yellow</yellow></red> text! <green>Some green in addition.</green>\n"
+            "<red>This is red <yellow>and yellow</yellow> text</red>! <green>Some green in addition.</green>\n"
         ));
 
         _userInterface->displayText(telegramTextFormatter.format(
-            "<bold>This is bold <italic>and italic</italic></bold> text! <bold>Some bold in addition.</bold>\n"
+            "<bold>This is bold <italic>and italic</italic> text</bold>! <bold>Some bold in addition.</bold>\n"
         ));
     }
 }

@@ -16,13 +16,13 @@ namespace fw
 
     std::string CliTextFormatter::applyTag(const std::string& tagName, std::string text) 
     {
-        std::string prefix = "";
+        std::string formattingSequence = "";
         
         for (const FormattingTag& formattingTag : _formattingTags)
         {
             if (tagName == formattingTag.getName())
             {
-                prefix = formattingTag.getStartingSequence();
+                formattingSequence = formattingTag.getStartingSequence();
                 break;
             }
         }
@@ -34,6 +34,12 @@ namespace fw
             previousFormatting += formattingSequence;
         }
 
-        return (prefix + format(text) + previousFormatting);
+        _previousFormattingSequences.push_back(formattingSequence);
+
+        std::string formattedText = formattingSequence + format(text) + previousFormatting;
+
+        _previousFormattingSequences.pop_back();
+
+        return formattedText;
     }
 }
