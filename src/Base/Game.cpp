@@ -31,5 +31,12 @@ namespace fw
         _userInterface->displayText(
             "<red>This is red <yellow>and yellow</yellow> text</red>! <green>Some green in addition.</green>\n"
         );
+
+        _userInterface->addTextToQueue("<red>This is red <yellow>and yellow</yellow> text</red>! ");
+        _userInterface->addTextToQueue("<green>Some green in addition.</green>\n");
+        _userInterface->displayQueuedText();
+
+        _userInterface->addTextToQueue("Hello world!\n");
+        _userInterface->displayQueuedText();
     }
 }

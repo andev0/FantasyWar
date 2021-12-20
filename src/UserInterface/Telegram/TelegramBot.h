@@ -13,6 +13,8 @@ namespace fw
         
         void displayText(std::string text) override;
 
+        void displayQueuedText() override;
+
     };
 }
 

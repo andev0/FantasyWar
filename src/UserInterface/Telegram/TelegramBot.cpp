@@ -13,6 +13,20 @@ namespace fw
     {
         
     }
+    
+    void TelegramBot::displayQueuedText() 
+    {
+        std::string message = "";
+
+        for (std::string& text : _textQueue)
+        {
+            message += text;
+        }
+
+        displayText(message);
+
+        _textQueue.clear();
+    }
 }
 
 #endif //TELEGRAM
