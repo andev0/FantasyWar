@@ -11,7 +11,7 @@ namespace fw
     public:
         TelegramBot();
         
-        void displayText(std::string text) override;
+        void displayText(const std::string& text) override;
 
         void displayQueuedText() override;
 

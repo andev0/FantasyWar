@@ -9,7 +9,7 @@ namespace fw
         _textFormatter = new CliTextFormatter();
     }
     
-    void LinuxTerminal::displayText(std::string text) 
+    void LinuxTerminal::displayText(const std::string& text) 
     {
         fmt::print(_textFormatter->format(text));
     }

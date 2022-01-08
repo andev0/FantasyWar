@@ -11,7 +11,7 @@ namespace fw
     public:
         WindowsConsole();
         
-        void displayText(std::string text) override;
+        void displayText(const std::string& text) override;
     
     };
 }

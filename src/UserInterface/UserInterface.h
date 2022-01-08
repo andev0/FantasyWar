@@ -15,7 +15,7 @@ namespace fw
     public:
         UserInterface();
 
-        virtual void displayText(std::string text) = 0;
+        virtual void displayText(const std::string& text) = 0;
 
         virtual void addTextToQueue(const std::string& text);
         virtual void displayQueuedText();
