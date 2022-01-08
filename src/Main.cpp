@@ -9,5 +9,7 @@ int main()
 
     app->start();
 
+    delete app;
+
     return 0; 
 }
