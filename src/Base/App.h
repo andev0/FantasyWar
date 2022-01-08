@@ -6,7 +6,7 @@ namespace fw
     class App
     {
     public:
-        virtual ~App();
+        virtual ~App() = default;
 
         virtual void start() = 0;
         
