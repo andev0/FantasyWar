@@ -29,9 +29,9 @@ namespace fw
 
         std::string previousFormatting;
 
-        for (const std::string& formattingSequence : _previousFormattingSequences)
+        for (const std::string& previousFormattingSequence : _previousFormattingSequences)
         {
-            previousFormatting += formattingSequence;
+            previousFormatting += previousFormattingSequence;
         }
 
         _previousFormattingSequences.push_back(formattingSequence);
