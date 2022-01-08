@@ -18,9 +18,27 @@ namespace fw
         #endif //OS TYPE
     }
 
+    Game::Game(const Game& other) 
+        : _userInterface(other._userInterface)
+    {
+        
+    }
+
     Game::~Game() 
     {
         delete _userInterface;
+    }
+    
+    Game& Game::operator=(const Game& other) 
+    {
+        if (this == &other)
+        {
+            return *this;
+        }
+
+        _userInterface = other._userInterface;
+
+        return *this;
     }
 
     void Game::start() 

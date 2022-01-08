@@ -15,7 +15,10 @@ namespace fw
     {
     public:
         Game();
+        Game(const Game& other);
         ~Game() override;
+
+        Game& operator=(const Game& other);
 
         void start() override;
         
