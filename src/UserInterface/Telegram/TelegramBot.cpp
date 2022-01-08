@@ -5,6 +5,7 @@
 namespace fw
 {
     TelegramBot::TelegramBot() 
+        : UserInterface::UserInterface(new TelegramTextFormatter())
     {
         
     }

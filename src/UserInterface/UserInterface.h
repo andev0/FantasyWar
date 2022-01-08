@@ -13,7 +13,7 @@ namespace fw
     class UserInterface
     {
     public:
-        UserInterface();
+        UserInterface(TextFormatter* textFormatter);
 
         virtual void displayText(const std::string& text) = 0;
 

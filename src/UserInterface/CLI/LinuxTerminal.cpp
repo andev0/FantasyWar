@@ -5,8 +5,9 @@
 namespace fw
 {
     LinuxTerminal::LinuxTerminal() 
+        : UserInterface::UserInterface(new CliTextFormatter())
     {
-        _textFormatter = new CliTextFormatter();
+        
     }
     
     void LinuxTerminal::displayText(const std::string& text) 
@@ -16,7 +17,7 @@ namespace fw
 
     LinuxTerminal::~LinuxTerminal()
     {
-        delete _textFormatter;
+        
     }
 }
 

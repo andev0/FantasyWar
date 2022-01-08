@@ -11,6 +11,7 @@
 namespace fw
 {
     WindowsConsole::WindowsConsole() 
+        : UserInterface::UserInterface(new CliTextFormatter())
     {
         SetConsoleCP(65001);
 

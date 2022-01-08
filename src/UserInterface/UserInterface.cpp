@@ -2,7 +2,8 @@
 
 namespace fw
 {
-    UserInterface::UserInterface() 
+    UserInterface::UserInterface(TextFormatter* textFormatter) 
+        : _textFormatter(textFormatter)
     {
         
     }
@@ -24,6 +25,6 @@ namespace fw
 
     UserInterface::~UserInterface()
     {
-
+        delete _textFormatter;
     }
 }
