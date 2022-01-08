@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "TextFormatter.h"
 
 namespace fw

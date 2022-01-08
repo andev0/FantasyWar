@@ -4,6 +4,8 @@
 
 #include "UserInterface/UserInterface.h"
 
+#include "UserInterface/TextFormatting/Formatters/TelegramTextFormatter.h"
+
 namespace fw
 {
     class TelegramBot : public UserInterface

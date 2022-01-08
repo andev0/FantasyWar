@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "TelegramTextFormatter.h"
 
 namespace fw

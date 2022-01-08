@@ -1,8 +1,6 @@
 #ifndef FW_FORMATTINGTAG_H
 #define FW_FORMATTINGTAG_H
 
-#include <string>
-
 namespace fw
 {
     class FormattingTag

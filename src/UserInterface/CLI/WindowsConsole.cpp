@@ -1,8 +1,8 @@
 #ifdef WINDOWS
 
-#include "WindowsConsole.h"
+#include "precompiled.h"
 
-#include <windows.h>
+#include "WindowsConsole.h"
 
 #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
 #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x4

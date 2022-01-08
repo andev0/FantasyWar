@@ -1,11 +1,6 @@
 #ifndef FW_USERINTERFACE_H
 #define FW_USERINTERFACE_H
 
-#include <string>
-#include <iostream>
-#include <map>
-#include <vector>
-
 #include "UserInterface/TextFormatting/TextFormatter.h"
 
 namespace fw

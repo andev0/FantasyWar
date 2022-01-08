@@ -1,5 +1,7 @@
 #ifdef LINUX
 
+#include "precompiled.h"
+
 #include "LinuxTerminal.h"
 
 namespace fw

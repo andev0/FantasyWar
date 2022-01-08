@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "CliTextFormatter.h"
 
 namespace fw
@@ -17,7 +19,7 @@ namespace fw
     std::string CliTextFormatter::applyTag(const std::string& tagName, std::string text) 
     {
         std::string formattingSequence = "";
-        
+
         for (const FormattingTag& formattingTag : _formattingTags)
         {
             if (tagName == formattingTag.getName())

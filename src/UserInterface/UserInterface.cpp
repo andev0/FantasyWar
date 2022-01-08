@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "UserInterface.h"
 
 namespace fw

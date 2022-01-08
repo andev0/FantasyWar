@@ -3,8 +3,6 @@
 
 #include "UserInterface/TextFormatting/TextFormatter.h"
 
-#include <vector>
-
 #include "UserInterface/TextFormatting/Tags/FormattingTag.h"
 
 namespace fw

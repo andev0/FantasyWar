@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "Game.h"
 
 #include "UserInterface/TextFormatting/Formatters/CliTextFormatter.h"
@@ -17,7 +19,7 @@ namespace fw
             #error Unknown platform specified in build arguments.
         #endif //OS TYPE
     }
-
+    
     Game::Game(const Game& other) 
         : _userInterface(other._userInterface)
     {

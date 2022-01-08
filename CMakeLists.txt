@@ -39,3 +39,5 @@ add_executable(${PROJECT_NAME} ${SRC_FOLDER}
                                ${SRC_UI_TEXTFORMATTING_FOLDER}
                                ${SRC_UI_TEXTFORMATTING_TAGS_FOLDER}
                                ${SRC_UI_TEXTFORMATTING_FORMATTERS_FOLDER})
+
+target_precompile_headers(${PROJECT_NAME} PRIVATE "src/precompiled.h")

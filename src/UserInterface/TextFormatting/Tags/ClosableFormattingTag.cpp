@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "ClosableFormattingTag.h"
 
 namespace fw

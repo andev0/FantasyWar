@@ -1,3 +1,5 @@
+#include "precompiled.h"
+
 #include "FormattingTag.h"
 
 namespace fw

@@ -1,9 +1,6 @@
 #ifndef FW_TEXTFORMATTER_H
 #define FW_TEXTFORMATTER_H
 
-#include <string>
-#include <regex>
-
 namespace fw
 {
     class TextFormatter

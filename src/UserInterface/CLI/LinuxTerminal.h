@@ -4,11 +4,6 @@
 
 #include "UserInterface/UserInterface.h"
 
-#include <string>
-
-#include <fmt/format.h>
-#include <fmt/color.h>
-
 #include "UserInterface/TextFormatting/Formatters/CliTextFormatter.h"
 
 namespace fw
