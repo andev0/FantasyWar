@@ -15,9 +15,9 @@ namespace fw
     protected:
         virtual std::string applyTag(const std::string& tagName, std::string text) override;
 
-        std::vector<std::string> _previousFormattingSequences;
+        std::vector<std::string> m_previousFormattingSequences;
 
-        static std::vector<FormattingTag> _formattingTags;
+        static std::vector<FormattingTag> m_formattingTags;
 
     };
 }

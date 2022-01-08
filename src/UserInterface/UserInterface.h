@@ -18,9 +18,9 @@ namespace fw
         virtual ~UserInterface();
 
     protected:
-        TextFormatter* _textFormatter;
+        TextFormatter* r_textFormatter;
 
-        std::vector<std::string> _textQueue;
+        std::vector<std::string> m_textQueue;
 
     };
 }

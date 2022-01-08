@@ -12,7 +12,7 @@ namespace fw
     protected:
         virtual std::string applyTag(const std::string& tagName, std::string text) override;
 
-        static std::vector<ClosableFormattingTag> _formattingTags;
+        static std::vector<ClosableFormattingTag> m_formattingTags;
 
     };
 }

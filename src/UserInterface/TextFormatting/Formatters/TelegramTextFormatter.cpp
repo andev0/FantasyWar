@@ -4,7 +4,7 @@
 
 namespace fw
 {
-    std::vector<ClosableFormattingTag> TelegramTextFormatter::_formattingTags({
+    std::vector<ClosableFormattingTag> TelegramTextFormatter::m_formattingTags({
         {"bold", "**", "**"},
         {"italic", "__", "__"},
     });
@@ -14,7 +14,7 @@ namespace fw
         std::string prefix = "";
         std::string postfix = "";
 
-        for (const ClosableFormattingTag& formattingTag : _formattingTags)
+        for (const ClosableFormattingTag& formattingTag : m_formattingTags)
             {
                 if (tagName == formattingTag.getName())
                 {

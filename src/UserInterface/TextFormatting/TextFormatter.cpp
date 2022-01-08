@@ -5,7 +5,7 @@
 namespace fw
 {
     TextFormatter::TextFormatter() 
-        : _formattingTagRegex("<([a-zA-Z]*?)>((?:.|\n)*?)<\\/\\1>")
+        : m_formattingTagRegex("<([a-zA-Z]*?)>((?:.|\n)*?)<\\/\\1>")
     {
         
     }
@@ -17,10 +17,10 @@ namespace fw
 
     std::string TextFormatter::format(std::string text) 
     {
-        while (std::regex_search(text, _formattingTagRegex))
+        while (std::regex_search(text, m_formattingTagRegex))
         {
             auto tokenMatch = 
-                std::sregex_iterator(text.begin(), text.end(), _formattingTagRegex);
+                std::sregex_iterator(text.begin(), text.end(), m_formattingTagRegex);
 
             std::string tag = (*tokenMatch)[1];
             std::string content = (*tokenMatch)[2];

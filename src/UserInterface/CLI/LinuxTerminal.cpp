@@ -14,7 +14,7 @@ namespace fw
     
     void LinuxTerminal::displayText(const std::string& text) 
     {
-        fmt::print(_textFormatter->format(text));
+        fmt::print(r_textFormatter->format(text));
     }
 
     LinuxTerminal::~LinuxTerminal()

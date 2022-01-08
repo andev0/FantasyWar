@@ -23,7 +23,7 @@ namespace fw
         void start() override;
         
     private:
-        UserInterface* _userInterface;
+        UserInterface* r_userInterface;
 
     };
 }

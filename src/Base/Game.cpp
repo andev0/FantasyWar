@@ -10,25 +10,25 @@ namespace fw
     Game::Game() 
     {
         #ifdef WINDOWS
-            _userInterface = new WindowsConsole();
+            r_userInterface = new WindowsConsole();
         #elif LINUX
-            _userInterface = new LinuxTerminal();
+            r_userInterface = new LinuxTerminal();
         #elif TELEGRAM
-            _userInterface = new TelegramBot();
+            r_userInterface = new TelegramBot();
         #else
             #error Unknown platform specified in build arguments.
         #endif //OS TYPE
     }
     
     Game::Game(const Game& other) 
-        : _userInterface(other._userInterface)
+        : r_userInterface(other.r_userInterface)
     {
         
     }
 
     Game::~Game() 
     {
-        delete _userInterface;
+        delete r_userInterface;
     }
     
     Game& Game::operator=(const Game& other) 
@@ -38,7 +38,7 @@ namespace fw
             return *this;
         }
 
-        _userInterface = other._userInterface;
+        r_userInterface = other.r_userInterface;
 
         return *this;
     }
@@ -48,15 +48,15 @@ namespace fw
         CliTextFormatter cliTextFormatter;
         TelegramTextFormatter telegramTextFormatter;
 
-        _userInterface->displayText(
+        r_userInterface->displayText(
             "<red>This is red <yellow>and yellow</yellow> text</red>! <green>Some green in addition.</green>\n"
         );
 
-        _userInterface->addTextToQueue("<red>This is red <yellow>and yellow</yellow> text</red>! ");
-        _userInterface->addTextToQueue("<green>Some green in addition.</green>\n");
-        _userInterface->displayQueuedText();
+        r_userInterface->addTextToQueue("<red>This is red <yellow>and yellow</yellow> text</red>! ");
+        r_userInterface->addTextToQueue("<green>Some green in addition.</green>\n");
+        r_userInterface->displayQueuedText();
 
-        _userInterface->addTextToQueue("Hello world!\n");
-        _userInterface->displayQueuedText();
+        r_userInterface->addTextToQueue("Hello world!\n");
+        r_userInterface->displayQueuedText();
     }
 }

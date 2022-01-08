@@ -14,9 +14,9 @@ namespace fw
         std::string getStartingSequence() const;
 
     private:
-        std::string _name;
+        std::string m_name;
 
-        std::string _startingSequence;
+        std::string m_startingSequence;
 
     };
 }

@@ -4,14 +4,14 @@
 
 namespace fw
 {
-    std::vector<FormattingTag> CliTextFormatter::_formattingTags({
+    std::vector<FormattingTag> CliTextFormatter::m_formattingTags({
         {"red", "\e[31m"},
         {"green", "\e[32m"},
         {"yellow", "\e[33m"}
     });
 
     CliTextFormatter::CliTextFormatter()
-        : _previousFormattingSequences({"\e[0m"})
+        : m_previousFormattingSequences({"\e[0m"})
     {
         
     }
@@ -20,7 +20,7 @@ namespace fw
     {
         std::string formattingSequence = "";
 
-        for (const FormattingTag& formattingTag : _formattingTags)
+        for (const FormattingTag& formattingTag : m_formattingTags)
         {
             if (tagName == formattingTag.getName())
             {
@@ -31,16 +31,16 @@ namespace fw
 
         std::string previousFormatting;
 
-        for (const std::string& previousFormattingSequence : _previousFormattingSequences)
+        for (const std::string& previousFormattingSequence : m_previousFormattingSequences)
         {
             previousFormatting += previousFormattingSequence;
         }
 
-        _previousFormattingSequences.push_back(formattingSequence);
+        m_previousFormattingSequences.push_back(formattingSequence);
 
         std::string formattedText = formattingSequence + format(text) + previousFormatting;
 
-        _previousFormattingSequences.pop_back();
+        m_previousFormattingSequences.pop_back();
 
         return formattedText;
     }

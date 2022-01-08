@@ -15,7 +15,7 @@ namespace fw
         std::string getEndingSequence() const;
 
     private:
-        std::string _endingSequence;
+        std::string m_endingSequence;
 
     };
 }

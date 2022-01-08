@@ -8,13 +8,13 @@ namespace fw
                                                  const std::string& startingSequence, 
                                                  const std::string& endingSequence) 
         : FormattingTag(name, startingSequence)
-        , _endingSequence(endingSequence)
+        , m_endingSequence(endingSequence)
     {
         
     }
     
     std::string ClosableFormattingTag::getEndingSequence() const
     {
-        return _endingSequence;
+        return m_endingSequence;
     }
 }
