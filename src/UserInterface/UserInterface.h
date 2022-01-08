@@ -1,6 +1,8 @@
 #ifndef FW_USERINTERFACE_H
 #define FW_USERINTERFACE_H
 
+#include "precompiled.h"
+
 #include "UserInterface/TextFormatting/TextFormatter.h"
 
 namespace fw
@@ -18,9 +20,9 @@ namespace fw
         virtual ~UserInterface();
 
     protected:
-        TextFormatter* r_textFormatter;
+        TextFormatter* _textFormatter;
 
-        std::vector<std::string> m_textQueue;
+        std::vector<std::string> _textQueue;
 
     };
 }

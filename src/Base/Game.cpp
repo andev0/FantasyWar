@@ -1,5 +1,3 @@
-#include "precompiled.h"
-
 #include "Game.h"
 
 #include "UserInterface/TextFormatting/Formatters/CliTextFormatter.h"

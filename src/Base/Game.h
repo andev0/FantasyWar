@@ -1,6 +1,8 @@
 #ifndef FW_GAME_H
 #define FW_GAME_H
 
+#include "precompiled.h"
+
 #include "App.h"
 
 #include "UserInterface/UserInterface.h"

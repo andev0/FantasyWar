@@ -1,6 +1,8 @@
 #ifndef FW_CLITEXTFORMATTER_H
 #define FW_CLITEXTFORMATTER_H
 
+#include "precompiled.h"
+
 #include "UserInterface/TextFormatting/TextFormatter.h"
 
 #include "UserInterface/TextFormatting/Tags/FormattingTag.h"

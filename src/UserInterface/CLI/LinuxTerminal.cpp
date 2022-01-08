@@ -1,7 +1,5 @@
 #ifdef LINUX
 
-#include "precompiled.h"
-
 #include "LinuxTerminal.h"
 
 namespace fw
@@ -14,7 +12,7 @@ namespace fw
     
     void LinuxTerminal::displayText(const std::string& text) 
     {
-        fmt::print(r_textFormatter->format(text));
+        fmt::print(_textFormatter->format(text));
     }
 
     LinuxTerminal::~LinuxTerminal()

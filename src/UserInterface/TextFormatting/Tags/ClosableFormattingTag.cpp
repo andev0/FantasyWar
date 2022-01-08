@@ -1,5 +1,3 @@
-#include "precompiled.h"
-
 #include "ClosableFormattingTag.h"
 
 namespace fw
@@ -8,13 +6,13 @@ namespace fw
                                                  const std::string& startingSequence, 
                                                  const std::string& endingSequence) 
         : FormattingTag(name, startingSequence)
-        , m_endingSequence(endingSequence)
+        , _endingSequence(endingSequence)
     {
         
     }
     
     std::string ClosableFormattingTag::getEndingSequence() const
     {
-        return m_endingSequence;
+        return _endingSequence;
     }
 }

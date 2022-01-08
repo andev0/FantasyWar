@@ -1,5 +1,3 @@
-#include "precompiled.h"
-
 #include "CliTextFormatter.h"
 
 namespace fw

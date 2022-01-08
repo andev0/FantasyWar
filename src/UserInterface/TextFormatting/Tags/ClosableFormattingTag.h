@@ -1,6 +1,8 @@
 #ifndef FW_CLOSABLEFORMATTINGTAG_H
 #define FW_CLOSABLEFORMATTINGTAG_H
 
+#include "precompiled.h"
+
 #include "FormattingTag.h"
 
 namespace fw
@@ -15,7 +17,7 @@ namespace fw
         std::string getEndingSequence() const;
 
     private:
-        std::string m_endingSequence;
+        std::string _endingSequence;
 
     };
 }

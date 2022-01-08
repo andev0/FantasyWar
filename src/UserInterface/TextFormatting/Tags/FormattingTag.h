@@ -1,6 +1,8 @@
 #ifndef FW_FORMATTINGTAG_H
 #define FW_FORMATTINGTAG_H
 
+#include "precompiled.h"
+
 namespace fw
 {
     class FormattingTag
@@ -14,9 +16,9 @@ namespace fw
         std::string getStartingSequence() const;
 
     private:
-        std::string m_name;
+        std::string _name;
 
-        std::string m_startingSequence;
+        std::string _startingSequence;
 
     };
 }

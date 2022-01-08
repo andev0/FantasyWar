@@ -1,7 +1,5 @@
 #ifdef WINDOWS
 
-#include "precompiled.h"
-
 #include "WindowsConsole.h"
 
 #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING

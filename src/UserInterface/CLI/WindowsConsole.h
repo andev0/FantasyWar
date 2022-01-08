@@ -2,6 +2,8 @@
 #ifndef FW_WINDOWSCONSOLE_H
 #define FW_WINDOWSCONSOLE_H
 
+#include "precompiled.h"
+
 #include "UserInterface/UserInterface.h"
 
 namespace fw
