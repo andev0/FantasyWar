@@ -1,12 +1,10 @@
-#include "Base/Game.h"
+#include <iostream>
+
+#include "Common/Globals.h"
 
 int main()
 {
-    fw::App* app = new fw::Game();
+    fw::g_ui.display(&fw::g_mainMenu);
 
-    app->start();
-
-    delete app;
-
-    return 0; 
+    return 0;
 }
