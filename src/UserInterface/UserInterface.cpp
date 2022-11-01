@@ -4,7 +4,7 @@ namespace fw
 {
 void UserInterface::display(const Menu* menu) const
 {
-    for (auto menuItem : menu->getMenuItems())
+    for (const auto& menuItem : menu->getMenuItems())
     {
         display(menuItem.get());
     }

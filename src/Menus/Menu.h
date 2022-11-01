@@ -12,13 +12,13 @@ class Menu
 public:
     virtual ~Menu() = 0;
 
-    virtual const std::vector<std::shared_ptr<MenuItem>>& getMenuItems() const
+    virtual const std::vector<std::unique_ptr<MenuItem>>& getMenuItems() const
     {
         return m_menuItems;
     }
 
 protected:
-    std::vector<std::shared_ptr<MenuItem>> m_menuItems;
+    std::vector<std::unique_ptr<MenuItem>> m_menuItems;
 };
 } // namespace fw
 
