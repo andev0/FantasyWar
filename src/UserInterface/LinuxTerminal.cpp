@@ -4,7 +4,12 @@ namespace fw
 {
 void LinuxTerminal::display(const MenuItem* menuItem) const
 {
-    if (const OptionMenuItem* optionItem = dynamic_cast<const OptionMenuItem*>(menuItem))
+    if (const TitleMenuItem* titleItem = dynamic_cast<const TitleMenuItem*>(menuItem))
+    {
+        display(STRING("[ " << titleItem->getTitle() << " ]\n"));
+    }
+    else if (const OptionMenuItem* optionItem
+             = dynamic_cast<const OptionMenuItem*>(menuItem))
     {
         display(optionItem->getText());
     }

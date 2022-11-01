@@ -2,7 +2,6 @@
 #define FW_MAINMENU_H
 
 #include "Menu.h"
-#include "MenuItems/TextMenuItem.h"
 
 namespace fw
 {
