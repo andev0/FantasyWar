@@ -1,5 +1,9 @@
 #include "LinuxTerminal.h"
 
+#include "MenuItems/TitleMenuItem.h"
+#include "MenuItems/OptionMenuItem.h"
+#include "MenuItems/TextMenuItem.h"
+
 namespace fw
 {
 void LinuxTerminal::display(const MenuItem* menuItem) const

@@ -3,9 +3,7 @@
 
 #include "UserInterface.h"
 
-#include "MenuItems/TitleMenuItem.h"
-#include "MenuItems/OptionMenuItem.h"
-#include "MenuItems/TextMenuItem.h"
+#include "MenuItems/MenuItem.h"
 
 namespace fw
 {
