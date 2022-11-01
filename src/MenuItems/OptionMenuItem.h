@@ -10,6 +10,9 @@ namespace fw
 class OptionMenuItem : public TextMenuItem
 {
 public:
+    OptionMenuItem(const std::string& text, std::function<void()> action);
+    virtual ~OptionMenuItem() { }
+
     void invokeAction() const;
 
 protected:
