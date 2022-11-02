@@ -12,6 +12,7 @@ class OptionsListMenuItem : public MenuItem
 {
 public:
     OptionsListMenuItem() { }
+    OptionsListMenuItem(const OptionsListMenuItem& other);
     virtual ~OptionsListMenuItem() { }
 
     virtual const std::vector<std::unique_ptr<OptionMenuItem>>& getOptions() const
