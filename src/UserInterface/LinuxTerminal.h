@@ -16,6 +16,10 @@ public:
     using UserInterface::display;
     virtual void display(const MenuItem* menuItem) const override;
     virtual void display(const std::string& text) const override;
+
+    virtual void displayLine(const std::string& text = "") const;
+
+    virtual std::string getTextInput() const override;
 };
 } // namespace fw
 

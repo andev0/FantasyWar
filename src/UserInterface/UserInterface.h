@@ -15,6 +15,8 @@ public:
     virtual void display(const Menu* menu) const;
     virtual void display(const MenuItem* menuItem) const = 0;
     virtual void display(const std::string& text) const = 0;
+
+    virtual std::string getTextInput() const = 0;
 };
 } // namespace fw
 

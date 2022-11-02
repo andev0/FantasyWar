@@ -13,27 +13,40 @@ void LinuxTerminal::display(const MenuItem* menuItem) const
 
         for (size_t i = 0; i < options.size(); ++i)
         {
-            display(STRING((i + 1) << ". " << options[i]->getText()));
+            displayLine(STRING((i + 1) << ". " << options[i]->getText()));
         }
-        display("");
+        displayLine();
     }
     else if (auto titleItem = dynamic_cast<const TitleMenuItem*>(menuItem))
     {
-        display(STRING("[ " << titleItem->getTitle() << " ]\n"));
+        displayLine(STRING("[ " << titleItem->getTitle() << " ]\n"));
     }
     else if (auto textItem = dynamic_cast<const TextMenuItem*>(menuItem))
     {
-        display(textItem->getText());
+        displayLine(textItem->getText());
     }
     else
     {
-        display("-- The element can't be displayed --");
+        displayLine("-- The element can't be displayed --");
     }
 }
 
 void LinuxTerminal::display(const std::string& text) const
 {
+    std::cout << text;
+}
+
+void LinuxTerminal::displayLine(const std::string& text) const
+{
     std::cout << text << std::endl;
+}
+
+std::string LinuxTerminal::getTextInput() const
+{
+    std::string input;
+    std::getline(std::cin, input);
+
+    return input;
 }
 
 } // namespace fw
