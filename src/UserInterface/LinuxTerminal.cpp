@@ -7,27 +7,21 @@ namespace fw
 {
 void LinuxTerminal::display(const MenuItem* menuItem) const
 {
-    if (const OptionsListMenuItem* optionsListItem
-        = dynamic_cast<const OptionsListMenuItem*>(menuItem))
+    if (auto optionsListItem = dynamic_cast<const OptionsListMenuItem*>(menuItem))
     {
-        for (size_t i = 0; i < optionsListItem->getOptions().size(); ++i)
+        const auto& options = optionsListItem->getOptions();
+
+        for (size_t i = 0; i < options.size(); ++i)
         {
-            display(
-                STRING((i + 1) << ". " << optionsListItem->getOptions()[i]->getText()));
+            display(STRING((i + 1) << ". " << options[i]->getText()));
         }
         display("");
     }
-    else if (const TitleMenuItem* titleItem
-             = dynamic_cast<const TitleMenuItem*>(menuItem))
+    else if (auto titleItem = dynamic_cast<const TitleMenuItem*>(menuItem))
     {
         display(STRING("[ " << titleItem->getTitle() << " ]\n"));
     }
-    else if (const OptionMenuItem* optionItem
-             = dynamic_cast<const OptionMenuItem*>(menuItem))
-    {
-        display(optionItem->getText());
-    }
-    else if (const TextMenuItem* textItem = dynamic_cast<const TextMenuItem*>(menuItem))
+    else if (auto textItem = dynamic_cast<const TextMenuItem*>(menuItem))
     {
         display(textItem->getText());
     }
