@@ -13,30 +13,25 @@ void LinuxTerminal::display(const MenuItem* menuItem) const
 
         for (size_t i = 0; i < options.size(); ++i)
         {
-            displayLine(STRING((i + 1) << ". " << options[i]->getText()));
+            display(STRING((i + 1) << ". " << options[i]->getText()));
         }
-        displayLine();
+        display("");
     }
     else if (auto titleItem = dynamic_cast<const TitleMenuItem*>(menuItem))
     {
-        displayLine(STRING("[ " << titleItem->getTitle() << " ]\n"));
+        display(STRING("[ " << titleItem->getTitle() << " ]\n"));
     }
     else if (auto textItem = dynamic_cast<const TextMenuItem*>(menuItem))
     {
-        displayLine(textItem->getText());
+        display(textItem->getText());
     }
     else
     {
-        displayLine("-- The element can't be displayed --");
+        display("-- The element can't be displayed --");
     }
 }
 
 void LinuxTerminal::display(const std::string& text) const
-{
-    std::cout << text;
-}
-
-void LinuxTerminal::displayLine(const std::string& text) const
 {
     std::cout << text << std::endl;
 }
