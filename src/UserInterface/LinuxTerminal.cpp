@@ -2,18 +2,24 @@
 
 #include "MenuItems/TitleMenuItem.h"
 #include "MenuItems/OptionsListMenuItem.h"
+#include "MenuItems/InputMenuItem.h"
 
 namespace fw
 {
 void LinuxTerminal::display(const MenuItem* menuItem) const
 {
-    if (auto optionsListItem = dynamic_cast<const OptionsListMenuItem*>(menuItem))
+    if (auto inputItem = dynamic_cast<const InputMenuItem*>(menuItem))
+    {
+        std::cout << "> ";
+        inputItem->processInput(getTextInput());
+    }
+    else if (auto optionsListItem = dynamic_cast<const OptionsListMenuItem*>(menuItem))
     {
         const auto& options = optionsListItem->getOptions();
 
         for (size_t i = 0; i < options.size(); ++i)
         {
-            display(STRING((i + 1) << ". " << options[i]->getText()));
+            display(STRING(i << ". " << options[i]->getText()));
         }
         display("");
     }
