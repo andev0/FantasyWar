@@ -9,6 +9,6 @@ git clone https://github.com/andev0/FantasyWar
 cd FantasyWar
 mkdir build
 cd build
-cmake ..
+cmake .. [-DBUILD_MODE=Release] [-DBUILD_MODE=Debug]
 cmake --build .
 ```
