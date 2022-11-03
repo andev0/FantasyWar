@@ -4,7 +4,7 @@
 
 int main()
 {
-    fw::g_ui.display(&fw::g_mainMenu);
+    fw::g_ui->display(&fw::g_mainMenu);
 
     return 0;
 }
