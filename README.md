@@ -3,11 +3,15 @@ Remastered version of my very first game.
 Written in C++. UI is planned to be represented by CLI and Telegram bot.
 Development is not focused on the result but on the learning process so there are few external libraries and progress is slow.
 
+- [Dependencies](#Dependencies)
 - [Building](#Building)
   - [Using Cmake](#Using-Cmake)
     - [Cmake variables](#Cmake-variables)
   - [Using build script](#Using-build-script)
 - [Running the game](#Running-the-game)
+
+## Dependencies
+In order to successfully build the project you need to download [Boost](https://www.boost.org/) of version 1.80.0 to `libraries/boost_1_80_0`.
 
 ## Building
 

@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.1)
 
 project(FantasyWar)
 
-include_directories(src)
+include_directories(src
+                    libraries/boost_1_80_0)
 
 aux_source_directory(src SRC_DIR)
 aux_source_directory(src/MenuItems SRC_MENUITEMS_DIR)

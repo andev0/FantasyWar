@@ -1,4 +1,12 @@
+# Configuration files and cache
 .vscode/
 .cache/
+
+# Build artifacts
 bin/
 build/
+
+# Boost shouldn't be included to the repo but it should be easy
+# to find out that there is an unresolved requirement
+libraries/boost_1_80_0/*
+!libraries/boost_1_80_0/LICENSE_1_0.txt
