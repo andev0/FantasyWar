@@ -6,8 +6,8 @@
 
 namespace fw
 {
-const MainMenu g_mainMenu = MainMenu();
-const std::unique_ptr<UserInterface> g_ui(new LinuxTerminal());
+extern const std::shared_ptr<UserInterface> g_ui;
+extern const MainMenu g_mainMenu;
 } // namespace fw
 
 #endif // FW_GLOBALS_H

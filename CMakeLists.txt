@@ -6,6 +6,7 @@ include_directories(src
                     libraries/boost_1_80_0)
 
 aux_source_directory(src SRC_DIR)
+aux_source_directory(src/Common SRC_COMMON_DIR)
 aux_source_directory(src/MenuItems SRC_MENUITEMS_DIR)
 aux_source_directory(src/Menus SRC_MENUS_DIR)
 aux_source_directory(src/UserInterface SRC_USERINTERFACE_DIR)
@@ -26,6 +27,7 @@ else()
 endif()
 
 add_executable(${PROJECT_NAME} ${SRC_DIR}
+                               ${SRC_COMMON_DIR}
                                ${SRC_MENUITEMS_DIR}
                                ${SRC_MENUS_DIR}
                                ${SRC_USERINTERFACE_DIR})
