@@ -10,13 +10,18 @@ namespace fw
 class InputMenuItem : public MenuItem
 {
 public:
-    explicit InputMenuItem(std::function<void(const std::string&)> processInput);
+    explicit InputMenuItem(std::function<void(const std::string&)> processInput,
+                           const std::string& inputPrefix = "> ");
     virtual ~InputMenuItem() { }
 
     virtual void processInput(const std::string& input) const;
 
+    virtual const std::string& getInputPrefix() const { return m_inputPrefix; }
+
 protected:
     std::function<void(const std::string&)> m_processInput;
+
+    std::string m_inputPrefix;
 };
 } // namespace fw
 

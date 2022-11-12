@@ -10,7 +10,7 @@ void LinuxTerminal::display(const MenuItem* menuItem) const
 {
     if (auto inputItem = dynamic_cast<const InputMenuItem*>(menuItem))
     {
-        print("> ");
+        print(inputItem->getInputPrefix());
         const std::string& input = getTextInput();
         printLine();
         inputItem->processInput(input);
