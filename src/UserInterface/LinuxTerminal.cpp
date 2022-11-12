@@ -21,7 +21,8 @@ void LinuxTerminal::display(const MenuItem* menuItem) const
 
         for (size_t i = 0; i < options.size(); ++i)
         {
-            printLine(STRING(i << ". " << options[i]->getText()));
+            printLine(STRING(i + optionsListItem->getStartingIndex()
+                             << ". " << options[i]->getText()));
         }
         printLine();
     }

@@ -2,8 +2,12 @@
 
 namespace fw
 {
+OptionsListMenuItem::OptionsListMenuItem(size_t startingIndex)
+    : m_startingIndex(startingIndex)
+{ }
 
 OptionsListMenuItem::OptionsListMenuItem(const OptionsListMenuItem& other)
+    : m_startingIndex(other.m_startingIndex)
 {
     m_options.reserve(other.getOptions().size());
 

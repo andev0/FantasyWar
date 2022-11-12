@@ -10,7 +10,7 @@ namespace fw
 {
 MainMenu::MainMenu()
 {
-    OptionsListMenuItem options;
+    OptionsListMenuItem options(0);
 
     options.addOption(OptionMenuItem("Exit", []() {
         g_ui->display("Goodbye!");
