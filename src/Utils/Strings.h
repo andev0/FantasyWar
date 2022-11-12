@@ -9,7 +9,10 @@ namespace fw
 {
 
 /// Allows to easily create a string using stringstream capabilities.
-#define STRING(stream) (std::stringstream() << stream).str()
+#define STRING(stream)                                                  \
+    ((dynamic_cast<std::ostringstream&>(                                \
+          std::ostringstream().seekp(0, std::ios_base::cur) << stream)) \
+         .str())
 
 /// Converts @param str to type @tparam T.
 /// @throws invalid_argument exception if there is no possible conversion.
