@@ -12,13 +12,13 @@
 #include <list>
 #include <map>
 #include <set>
+#include <stack>
 #include <algorithm>
 
 #include <memory>
-
 #include <ctime>
-
 #include <functional>
+#include <exception>
 
 #include "Utils/Strings.h"
 

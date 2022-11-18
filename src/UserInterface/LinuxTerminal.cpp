@@ -6,6 +6,15 @@
 
 namespace fw
 {
+using namespace std::string_literals;
+
+void LinuxTerminal::display() const
+{
+    system("clear");
+
+    UserInterface::display();
+}
+
 void LinuxTerminal::display(const MenuItem* menuItem) const
 {
     if (auto inputItem = dynamic_cast<const InputMenuItem*>(menuItem))
@@ -28,7 +37,7 @@ void LinuxTerminal::display(const MenuItem* menuItem) const
     }
     else if (auto titleItem = dynamic_cast<const TitleMenuItem*>(menuItem))
     {
-        printLine(STRING("[ " << titleItem->getTitle() << " ]\n"));
+        printLine("[ "s + titleItem->getTitle() + " ]\n");
     }
     else if (auto textItem = dynamic_cast<const TextMenuItem*>(menuItem))
     {
@@ -55,12 +64,12 @@ std::string LinuxTerminal::getTextInput() const
     return input;
 }
 
-void LinuxTerminal::print(std::string text) const
+void LinuxTerminal::print(const std::string& text) const
 {
     std::cout << text << std::flush;
 }
 
-void LinuxTerminal::printLine(std::string text) const
+void LinuxTerminal::printLine(const std::string& text) const
 {
     std::cout << text << std::endl;
 }

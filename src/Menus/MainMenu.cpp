@@ -12,14 +12,25 @@ MainMenu::MainMenu()
     OptionsListMenuItem options(0);
 
     options.addOption(OptionMenuItem("Exit", []() {
-        g_ui->display("Goodbye!");
-        std::exit(0);
+        TextMenuItem modalQuestion("Are you sure you want to exit?");
+
+        OptionsListMenuItem modalOptions;
+        modalOptions.addOption(OptionMenuItem("Yes", []() {
+            g_ui->popMenu();
+        }));
+        modalOptions.addOption(OptionMenuItem("No", []() {}));
+
+        InputMenuOptionItem modalInput(modalOptions);
+
+        g_ui->display(&modalQuestion);
+        g_ui->display(&modalOptions);
+        g_ui->display(&modalInput);
     }));
-    options.addOption(OptionMenuItem("Sword", []() {
-        g_ui->display("The sword is chosen!");
+    options.addOption(OptionMenuItem("Display as modal", []() {
+        g_ui->display(&g_mainMenu);
     }));
-    options.addOption(OptionMenuItem("Shield", []() {
-        g_ui->display("The shield is chosen!");
+    options.addOption(OptionMenuItem("Push menu", []() {
+        g_ui->pushMenu(&g_mainMenu);
     }));
     options.addOption(OptionMenuItem("Spear", []() {
         g_ui->display("The spear is chosen!");
