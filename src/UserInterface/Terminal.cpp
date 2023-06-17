@@ -13,14 +13,20 @@ void Terminal::printLine(const std::string& text)
     std::cout << text << std::endl;
 }
 
-void Terminal::display(const MenuItem* menuItem)
+void Terminal::display(MenuItem* menuItem)
 {
     if (menuItem == nullptr)
     {
         return;
     }
 
-    if (dynamic_cast<const TitleMenuItem*>(menuItem) != nullptr)
+    if (auto inputItem = dynamic_cast<InputMenuItem*>(menuItem))
+    {
+        print(menuItem->getText());
+        inputItem->setResult(readLine());
+        printLine();
+    }
+    else if (dynamic_cast<TitleMenuItem*>(menuItem) != nullptr)
     {
         printLine(menuItem->getText());
         printLine();
@@ -29,6 +35,15 @@ void Terminal::display(const MenuItem* menuItem)
     {
         printLine(menuItem->getText());
     }
+}
+
+std::string Terminal::readLine()
+{
+    std::string input;
+
+    std::getline(std::cin, input);
+
+    return input;
 }
 
 } // namespace fw
