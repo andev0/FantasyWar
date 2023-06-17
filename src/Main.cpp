@@ -3,15 +3,13 @@
 
 int main()
 {
-    fw::TextMenuItem textItem("Hello world!");
     fw::TitleMenuItem defaultTitleItem;
     fw::TitleMenuItem titleItem("Fantasy War");
+    fw::TextMenuItem textItem("Hello world!");
 
-    fw::Terminal::printLine(defaultTitleItem.getText());
-    fw::Terminal::printLine();
-    fw::Terminal::printLine(titleItem.getText());
-    fw::Terminal::printLine();
-    fw::Terminal::printLine(textItem.getText());
+    fw::Terminal::display(&defaultTitleItem);
+    fw::Terminal::display(&titleItem);
+    fw::Terminal::display(&textItem);
 
     return 0;
 }
