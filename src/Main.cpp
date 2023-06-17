@@ -1,8 +1,10 @@
 #include "UserInterface/Terminal.h"
+#include "UserInterface/MenuItems/TextMenuItem.h"
 
 int main()
 {
-    fw::Terminal::printLine("Hello world!");
+    fw::TextMenuItem textItem("Hello world!");
+    fw::Terminal::printLine(textItem.getText());
 
     return 0;
 }
