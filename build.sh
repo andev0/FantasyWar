@@ -28,7 +28,7 @@ echo -e "\n\e[92mBuilt successfully.\e[0m\n"
 # Asking while no correct answer is provided.
 while :
 do
-    read -n1 -r -p "Are you want to launch the program? [Y/n] " key
+    read -n1 -r -p "Do you want to launch the program? [Y/n] " key
 
     if [[ $key = "" ]] || [[ $key = "Y" ]] || [[ $key = "y" ]]; then
         ./FantasyWar
