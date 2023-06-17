@@ -11,7 +11,7 @@ class Terminal
 {
 public:
     static void print(const std::string& text);
-    static void printLine(const std::string& text);
+    static void printLine(const std::string& text = "");
 };
 
 } // namespace fw

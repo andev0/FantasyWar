@@ -5,6 +5,7 @@
 
 namespace fw
 {
+
 class TextMenuItem : public MenuItem
 {
 public:
@@ -15,6 +16,7 @@ public:
 private:
     std::string m_text;
 };
+
 } // namespace fw
 
 #endif // FW_TEXTMENUITEM_H
