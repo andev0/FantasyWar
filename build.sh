@@ -31,6 +31,7 @@ do
     read -n1 -r -p "Do you want to launch the program? [Y/n] " key
 
     if [[ $key = "" ]] || [[ $key = "Y" ]] || [[ $key = "y" ]]; then
+        clear
         ./FantasyWar
         break
     elif [[ $key = "N" ]] || [[ $key = "n" ]]; then

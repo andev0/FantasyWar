@@ -6,6 +6,7 @@
 
 #include "MenuItems/TitleMenuItem.h"
 #include "MenuItems/InputMenuItem.h"
+#include "Menus/Menu.h"
 
 namespace fw
 {
@@ -15,7 +16,9 @@ class Terminal
 public:
     static void print(const std::string& text);
     static void printLine(const std::string& text = "");
+
     static void display(MenuItem* menuItem);
+    static void display(const Menu* menu);
 
     static std::string readLine();
 };

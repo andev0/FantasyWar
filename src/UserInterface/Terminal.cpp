@@ -37,6 +37,36 @@ void Terminal::display(MenuItem* menuItem)
     }
 }
 
+void Terminal::display(const Menu* menu)
+{
+    for (const auto& menuItem : menu->getMenuItems())
+    {
+        display(menuItem.get());
+    }
+
+    if (!menu->getMenuOptions().empty())
+    {
+        printLine();
+
+        for (size_t i = 0; i < menu->getMenuOptions().size(); ++i)
+        {
+            printLine(std::to_string(i) + ". " + menu->getMenuOptions()[i].getName());
+        }
+
+        InputMenuItem inputItem;
+
+        printLine();
+        display(&inputItem);
+
+        size_t choosedOption = std::stoi(inputItem.getResult());
+
+        if (menu->getMenuOptions().size() > choosedOption)
+        {
+            menu->getMenuOptions()[choosedOption].execute();
+        }
+    }
+}
+
 std::string Terminal::readLine()
 {
     std::string input;

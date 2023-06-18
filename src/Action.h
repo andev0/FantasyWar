@@ -10,7 +10,7 @@ namespace fw
 class Action
 {
 public:
-    Action(
+    explicit Action(
         const std::string& name = "", const std::function<void()>& action = [] {});
 
     const std::string& getName() const;
