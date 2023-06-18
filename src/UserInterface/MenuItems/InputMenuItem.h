@@ -16,6 +16,8 @@ public:
 
 private:
     std::string m_result;
+
+    inline static const std::string s_inputPrefix = "> ";
 };
 
 } // namespace fw

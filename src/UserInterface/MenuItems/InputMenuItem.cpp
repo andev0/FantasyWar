@@ -5,9 +5,7 @@ namespace fw
 
 const std::string& InputMenuItem::getText() const
 {
-    static const std::string inputPrefix("> ");
-
-    return inputPrefix;
+    return s_inputPrefix;
 }
 
 void InputMenuItem::setResult(const std::string& result)
