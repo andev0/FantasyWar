@@ -20,20 +20,26 @@ void Terminal::display(MenuItem* menuItem)
         return;
     }
 
+    using Color = fw::Formatter::BrightColor;
+
     if (auto inputItem = dynamic_cast<InputMenuItem*>(menuItem))
     {
+        print(m_formatter.getColorCode(Color::GREEN));
+
         print(menuItem->getText());
         inputItem->setResult(readLine());
         printLine();
+
+        print(m_formatter.getResetColorCode());
     }
     else if (dynamic_cast<TitleMenuItem*>(menuItem) != nullptr)
     {
-        printLine(menuItem->getText());
+        printLine(m_formatter.applyColor(menuItem->getText(), Color::CYAN));
         printLine();
     }
     else
     {
-        printLine(menuItem->getText());
+        printLine(m_formatter.applyColor(menuItem->getText(), Color::WHITE));
     }
 }
 
@@ -50,7 +56,9 @@ void Terminal::display(const Menu* menu)
 
         for (size_t i = 0; i < menu->getMenuOptions().size(); ++i)
         {
-            printLine(std::to_string(i) + ". " + menu->getMenuOptions()[i].getName());
+            printLine(m_formatter.applyColor(std::to_string(i) + ". "
+                                                 + menu->getMenuOptions()[i].getName(),
+                                             fw::Formatter::DarkColor::WHITE));
         }
 
         InputMenuItem inputItem;

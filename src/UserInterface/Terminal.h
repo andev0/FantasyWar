@@ -8,6 +8,8 @@
 #include "MenuItems/InputMenuItem.h"
 #include "Menus/Menu.h"
 
+#include "UserInterface/Formatter.h"
+
 namespace fw
 {
 
@@ -21,6 +23,9 @@ public:
     static void display(const Menu* menu);
 
     static std::string readLine();
+
+private:
+    static inline Formatter m_formatter {};
 };
 
 } // namespace fw
