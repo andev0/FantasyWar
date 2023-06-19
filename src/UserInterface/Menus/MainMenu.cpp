@@ -15,10 +15,16 @@ MainMenu::MainMenu()
     addMenuItem(std::make_unique<TextMenuItem>("Welcome to Fantasy War!"));
 
     addMenuOption("Exit game", [] {
+        fw::Terminal::printLine("Quiting...");
         std::exit(0);
     });
     addMenuOption("Say hello", [] {
         fw::Terminal::printLine("Hello!");
+    });
+
+    addCommand("exit", [] {
+        fw::Terminal::printLine("Quiting...");
+        std::exit(0);
     });
 }
 } // namespace fw

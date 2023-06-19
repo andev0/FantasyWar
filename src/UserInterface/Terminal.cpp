@@ -60,19 +60,25 @@ void Terminal::display(const Menu* menu)
                                                  + menu->getMenuOptions()[i].getName(),
                                              fw::Formatter::DarkColor::WHITE));
         }
+    }
 
-        InputMenuItem inputItem;
+    InputMenuItem inputItem;
 
+    if (!menu->getMenuOptions().empty() || !menu->getCommands().empty())
+    {
         printLine();
         display(&inputItem);
-
-        size_t choosedOption = std::stoi(inputItem.getResult());
-
-        if (menu->getMenuOptions().size() > choosedOption)
-        {
-            menu->getMenuOptions()[choosedOption].execute();
-        }
     }
+
+    processInput(menu, inputItem.getResult());
+}
+
+void Terminal::displayError(const std::string& text)
+{
+    printLine(m_formatter.applyColor(text, Formatter::BrightColor::RED));
+    printLine(m_formatter.applyColor("Press Enter to continue.",
+                                     Formatter::BrightColor::BLACK));
+    readLine();
 }
 
 std::string Terminal::readLine()
@@ -82,6 +88,44 @@ std::string Terminal::readLine()
     std::getline(std::cin, input);
 
     return input;
+}
+
+void Terminal::processInput(const Menu* menu, const std::string& input)
+{
+    assert(!menu->getMenuOptions().empty() || !menu->getCommands().empty());
+
+    if (!menu->getMenuOptions().empty())
+    {
+        std::smatch match;
+
+        if (std::regex_match(input, match, std::regex("[0-9]+")))
+        {
+            size_t choosedOption = std::stoi(input);
+
+            if (menu->getMenuOptions().size() > choosedOption)
+            {
+                menu->getMenuOptions()[choosedOption].execute();
+                return;
+            }
+        }
+    }
+
+    if (!menu->getCommands().empty())
+    {
+        for (const auto& command : menu->getCommands())
+        {
+            if (command.executeOnMatch(input))
+            {
+                return;
+            }
+        }
+
+        displayError(std::string("Unrecognized option \"") + input + "\".");
+        return;
+    }
+
+    displayError(std::string("Please, enter a number from 0 to ")
+                 + std::to_string(menu->getMenuOptions().size()) + ".");
 }
 
 } // namespace fw
