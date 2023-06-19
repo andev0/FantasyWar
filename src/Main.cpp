@@ -1,15 +1,11 @@
 #include <vector>
 
 #include "UserInterface/Terminal.h"
-#include "UserInterface/Menus/MainMenu.h"
+#include "UserInterface/Menus/LoginMenu.h"
 
 int main()
 {
-    while (true)
-    {
-        system("clear");
-        fw::Terminal::display(&fw::MainMenu::getInstance());
-    }
+    fw::Terminal::display(&fw::LoginMenu::getInstance());
 
     return 0;
 }
