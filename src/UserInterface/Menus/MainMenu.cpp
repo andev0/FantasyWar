@@ -1,5 +1,7 @@
 #include "MainMenu.h"
 
+#include "YesNoPrompt.h"
+
 namespace fw
 {
 const MainMenu& MainMenu::getInstance()
@@ -15,16 +17,22 @@ MainMenu::MainMenu()
     addMenuItem(std::make_unique<TextMenuItem>("Welcome to Fantasy War!"));
 
     addMenuOption("Exit game", [] {
-        fw::Terminal::printLine("Quiting...");
-        std::exit(0);
+        YesNoPrompt exitPrompt(
+            "Are you sure you want to exit?", std::bind(std::exit, 0),
+            std::bind(fw::Terminal::printLine, std::string("Not quiting...")));
+
+        fw::Terminal::display(&exitPrompt);
     });
     addMenuOption("Say hello", [] {
         fw::Terminal::printLine("Hello!");
     });
 
     addCommand("exit", [] {
-        fw::Terminal::printLine("Quiting...");
-        std::exit(0);
+        YesNoPrompt exitPrompt(
+            "Are you sure you want to exit?", std::bind(std::exit, 0),
+            std::bind(fw::Terminal::printLine, std::string("Not quiting...")));
+
+        fw::Terminal::display(&exitPrompt);
     });
 }
 } // namespace fw

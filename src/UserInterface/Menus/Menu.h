@@ -14,6 +14,10 @@ namespace fw
 class Menu
 {
 public:
+    Menu() = default;
+    Menu(const Menu&) = delete;
+    Menu& operator=(const Menu&) = delete;
+
     virtual ~Menu() = default;
 
     const std::vector<std::unique_ptr<MenuItem>>& getMenuItems() const;
