@@ -9,8 +9,8 @@ YesNoPrompt::YesNoPrompt(const std::string& question,
 {
     addMenuItem(std::make_unique<TextMenuItem>(question));
 
-    addMenuOption("Yes", onYesChoosed);
     addMenuOption("No", onNoChoosed);
+    addMenuOption("Yes", onYesChoosed);
 }
 
 } // namespace fw

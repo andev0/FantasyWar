@@ -23,7 +23,7 @@ public:
     static void display(MenuItem* menuItem);
     static void display(const Menu* menu);
 
-    static void displayError(const std::string& text);
+    static void notify(const std::string& text);
 
     static std::string readLine();
 

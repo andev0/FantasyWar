@@ -24,7 +24,7 @@ MainMenu::MainMenu()
         fw::Terminal::display(&exitPrompt);
     });
     addMenuOption("Say hello", [] {
-        fw::Terminal::printLine("Hello!");
+        fw::Terminal::notify("Hello!");
     });
 
     addCommand("exit", [] {

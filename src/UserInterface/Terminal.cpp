@@ -73,9 +73,9 @@ void Terminal::display(const Menu* menu)
     processInput(menu, inputItem.getResult());
 }
 
-void Terminal::displayError(const std::string& text)
+void Terminal::notify(const std::string& text)
 {
-    printLine(m_formatter.applyColor(text, Formatter::BrightColor::RED));
+    printLine(text);
     printLine(m_formatter.applyColor("Press Enter to continue.",
                                      Formatter::BrightColor::BLACK));
     readLine();
@@ -120,12 +120,16 @@ void Terminal::processInput(const Menu* menu, const std::string& input)
             }
         }
 
-        displayError(std::string("Unrecognized option \"") + input + "\".");
+        notify(
+            m_formatter.applyColor(std::string("Unrecognized option \"") + input + "\".",
+                                   Formatter::BrightColor::RED));
         return;
     }
 
-    displayError(std::string("Please, enter a number from 0 to ")
-                 + std::to_string(menu->getMenuOptions().size()) + ".");
+    notify(m_formatter.applyColor(std::string("Please, enter a number from 0 to ")
+                                      + std::to_string(menu->getMenuOptions().size())
+                                      + ".",
+                                  Formatter::BrightColor::RED));
 }
 
 } // namespace fw

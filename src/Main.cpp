@@ -5,7 +5,11 @@
 
 int main()
 {
-    fw::Terminal::display(&fw::MainMenu::getInstance());
+    while (true)
+    {
+        system("clear");
+        fw::Terminal::display(&fw::MainMenu::getInstance());
+    }
 
     return 0;
 }
