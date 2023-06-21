@@ -14,7 +14,7 @@ const LoginMenu& LoginMenu::getInstance()
 
 LoginMenu::LoginMenu()
 {
-    InputMenuItem* loginInput = new InputMenuItem();
+    InputMenuItem* loginInput = new InputMenuItem("\n> ");
 
     addMenuItem(std::make_unique<TitleMenuItem>("Login"));
     addMenuItem(std::make_unique<TextMenuItem>("Please, enter your nickname."));
@@ -30,7 +30,7 @@ LoginMenu::LoginMenu()
         else
         {
             YesNoPrompt ensurance(
-                "Did you type the nickname correctly?",
+                "\nDid you type the nickname correctly?",
                 [&input] {
                     nickname = input;
                     while (true)

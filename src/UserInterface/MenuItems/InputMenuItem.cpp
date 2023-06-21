@@ -2,10 +2,13 @@
 
 namespace fw
 {
+InputMenuItem::InputMenuItem(const std::string& inputPrefix)
+    : m_inputPrefix(inputPrefix)
+{ }
 
 const std::string& InputMenuItem::getText() const
 {
-    return s_inputPrefix;
+    return m_inputPrefix;
 }
 
 void InputMenuItem::setResult(const std::string& result)

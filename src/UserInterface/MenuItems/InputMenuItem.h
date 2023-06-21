@@ -11,6 +11,8 @@ namespace fw
 class InputMenuItem : public MenuItem
 {
 public:
+    InputMenuItem(const std::string& inputPrefix = "> ");
+
     const std::string& getText() const override;
 
     void setResult(const std::string& result);
@@ -20,9 +22,8 @@ public:
 
 private:
     std::string m_result;
+    std::string m_inputPrefix = "> ";
     std::function<void(const std::string&)> m_onResultSet {[](const std::string&) {}};
-
-    inline static const std::string s_inputPrefix = "> ";
 };
 
 } // namespace fw
