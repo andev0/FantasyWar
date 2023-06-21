@@ -3,6 +3,8 @@
 
 #include "MenuItem.h"
 
+#include <functional>
+
 namespace fw
 {
 
@@ -14,8 +16,11 @@ public:
     void setResult(const std::string& result);
     const std::string& getResult() const;
 
+    void invokeOnResultSet(const std::function<void(const std::string&)>& action);
+
 private:
     std::string m_result;
+    std::function<void(const std::string&)> m_onResultSet {[](const std::string&) {}};
 
     inline static const std::string s_inputPrefix = "> ";
 };

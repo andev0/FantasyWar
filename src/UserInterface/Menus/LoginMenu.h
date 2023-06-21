@@ -12,6 +12,8 @@ class LoginMenu : public Menu
 public:
     static const LoginMenu& getInstance();
 
+    inline static std::string nickname {};
+
 private:
     LoginMenu();
 };

@@ -14,30 +14,37 @@ const LoginMenu& LoginMenu::getInstance()
 
 LoginMenu::LoginMenu()
 {
+    InputMenuItem* loginInput = new InputMenuItem();
+
     addMenuItem(std::make_unique<TitleMenuItem>("Login"));
     addMenuItem(std::make_unique<TextMenuItem>("Please, enter your nickname."));
-    addMenuItem(std::make_unique<TextMenuItem>(
-        "Nickname can contain English letters and numbers."));
+    addMenuItem(std::make_unique<TextMenuItem>("Enter \"0\" to exit the game."));
 
-    addMenuOption("Exit game", [] {
-        std::exit(0);
-    });
+    addMenuItem(std::unique_ptr<InputMenuItem>(loginInput));
 
-    addCommand("[a-zA-Z0-9]+", [] {
-        YesNoPrompt ensurance(
-            "Did you typed nickname correctly?",
-            [] {
-                while (true)
-                {
-                    system("clear");
-                    fw::Terminal::display(&MainMenu::getInstance());
-                }
-            },
-            [] {
-                fw::Terminal::display(&LoginMenu::getInstance());
-            });
+    loginInput->invokeOnResultSet([](const std::string& input) {
+        if (input == "0")
+        {
+            std::exit(0);
+        }
+        else
+        {
+            YesNoPrompt ensurance(
+                "Did you type the nickname correctly?",
+                [&input] {
+                    while (true)
+                    {
+                        system("clear");
+                        fw::Terminal::display(&MainMenu::getInstance());
+                        nickname = input;
+                    }
+                },
+                [] {
+                    fw::Terminal::display(&LoginMenu::getInstance());
+                });
 
-        fw::Terminal::display(&ensurance);
+            fw::Terminal::display(&ensurance);
+        }
     });
 }
 } // namespace fw
