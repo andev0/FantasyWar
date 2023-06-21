@@ -32,11 +32,11 @@ LoginMenu::LoginMenu()
             YesNoPrompt ensurance(
                 "Did you type the nickname correctly?",
                 [&input] {
+                    nickname = input;
                     while (true)
                     {
                         system("clear");
                         fw::Terminal::display(&MainMenu::getInstance());
-                        nickname = input;
                     }
                 },
                 [] {
