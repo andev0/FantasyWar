@@ -8,6 +8,7 @@ aux_source_directory(src SRC_DIR)
 aux_source_directory(src/UserInterface SRC_USERINTERFACE_DIR)
 aux_source_directory(src/UserInterface/MenuItems SRC_MENUITEMS_DIR)
 aux_source_directory(src/UserInterface/Menus SRC_MENUS_DIR)
+aux_source_directory(src/Game SRC_GAME_DIR)
 
 add_compile_options(-Wall --std=c++17)
 
@@ -27,4 +28,5 @@ endif()
 add_executable(${PROJECT_NAME} ${SRC_DIR}
                                ${SRC_USERINTERFACE_DIR}
                                ${SRC_MENUITEMS_DIR}
-                               ${SRC_MENUS_DIR})
+                               ${SRC_MENUS_DIR}
+                               ${SRC_GAME_DIR})
