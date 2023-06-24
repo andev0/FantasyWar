@@ -3,8 +3,11 @@
 #include "MainMenu.h"
 #include "YesNoPrompt.h"
 
+#include "Game/Player.h"
+
 namespace fw
 {
+
 const LoginMenu& LoginMenu::getInstance()
 {
     static LoginMenu m_instance;
@@ -29,22 +32,16 @@ LoginMenu::LoginMenu()
         }
         else
         {
-            YesNoPrompt ensurance(
-                "\nDid you type the nickname correctly?",
-                [&input] {
-                    nickname = input;
-                    while (true)
-                    {
-                        system("clear");
-                        fw::Terminal::display(&MainMenu::getInstance());
-                    }
-                },
-                [] {
-                    fw::Terminal::display(&LoginMenu::getInstance());
-                });
+            Player::getInstance().setNickname(input);
 
-            fw::Terminal::display(&ensurance);
+            while (true)
+            {
+                Terminal::clear();
+
+                Terminal::display(&MainMenu::getInstance());
+            }
         }
     });
 }
+
 } // namespace fw

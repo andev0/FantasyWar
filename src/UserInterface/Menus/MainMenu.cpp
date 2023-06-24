@@ -1,9 +1,11 @@
 #include "MainMenu.h"
 
 #include "YesNoPrompt.h"
+#include "PlayerMenu.h"
 
 #include "UserInterface/MenuItems/DynamicTextMenuItem.h"
-#include "LoginMenu.h"
+
+#include "Game/Player.h"
 
 namespace fw
 {
@@ -18,19 +20,20 @@ MainMenu::MainMenu()
 {
     addMenuItem(std::make_unique<TitleMenuItem>("Main menu"));
     addMenuItem(std::make_unique<DynamicTextMenuItem>([] {
-        return std::string("Welcome to Fantasy War, ") + fw::LoginMenu::nickname + "!";
+        return std::string("Welcome to Fantasy War, ")
+               + Player::getInstance().getNickname() + "!";
     }));
 
     auto exitGame = [] {
         YesNoPrompt exitPrompt("Are you sure you want to exit?", std::bind(std::exit, 0),
                                [] {});
 
-        fw::Terminal::display(&exitPrompt);
+        Terminal::display(&exitPrompt);
     };
 
     addMenuOption("Exit the game", exitGame);
-    addMenuOption("Say hello", [] {
-        fw::Terminal::notify("Hello!");
+    addMenuOption("Player", [] {
+        Terminal::display(&PlayerMenu::getInstance());
     });
 
     addCommand("exit", exitGame);

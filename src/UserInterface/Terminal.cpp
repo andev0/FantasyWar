@@ -1,5 +1,7 @@
 #include "Terminal.h"
 
+#include "MenuItems/PauseMenuItem.h"
+
 namespace fw
 {
 
@@ -20,9 +22,15 @@ void Terminal::display(MenuItem* menuItem)
         return;
     }
 
-    using Color = fw::Formatter::BrightColor;
+    using Color = Formatter::BrightColor;
 
-    if (auto inputItem = dynamic_cast<InputMenuItem*>(menuItem))
+    if (auto inputItem = dynamic_cast<PauseMenuItem*>(menuItem))
+    {
+        printLine(inputItem->getText());
+
+        readLine();
+    }
+    else if (auto inputItem = dynamic_cast<InputMenuItem*>(menuItem))
     {
         print(m_formatter.getColorCode(Color::GREEN));
 
@@ -58,17 +66,19 @@ void Terminal::display(const Menu* menu)
         {
             printLine(m_formatter.applyColor(std::to_string(i) + ". "
                                                  + menu->getMenuOptions()[i].getName(),
-                                             fw::Formatter::DarkColor::WHITE));
+                                             Formatter::DarkColor::WHITE));
         }
     }
 
     InputMenuItem inputItem;
 
-    if (!menu->getMenuOptions().empty() || !menu->getCommands().empty())
+    if (menu->getMenuOptions().empty() && menu->getCommands().empty())
     {
-        printLine();
-        display(&inputItem);
+        return;
     }
+
+    printLine();
+    display(&inputItem);
 
     processInput(menu, inputItem.getResult());
 }
@@ -88,6 +98,11 @@ std::string Terminal::readLine()
     std::getline(std::cin, input);
 
     return input;
+}
+
+void Terminal::clear()
+{
+    system("clear");
 }
 
 void Terminal::processInput(const Menu* menu, const std::string& input)

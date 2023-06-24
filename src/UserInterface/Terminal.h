@@ -27,6 +27,8 @@ public:
 
     static std::string readLine();
 
+    static void clear();
+
 private:
     static inline Formatter m_formatter {};
 

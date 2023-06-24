@@ -5,30 +5,35 @@
 
 #include <string>
 
+#include "UserInterface/Menus/LoginMenu.h"
+
 namespace fw
 {
 
 class Player : public Mob
 {
 public:
-    explicit Player(const std::string& nickname = "");
+    static Player& getInstance();
 
     const std::string& getNickname() const;
     size_t getLevel() const;
-    size_t getExperience() const;
 
-    void recieveExperience(size_t experience);
+    void incrementLevel();
 
 protected:
+    explicit Player(const std::string& nickname = "");
+    Player(const Player& other) = default;
+    Player& operator=(const Player& other) = default;
+
     void setNickname(const std::string& nickname);
     void setLevel(size_t level);
-    void setExperience(size_t experience);
+
+    friend class LoginMenu;
 
 private:
     std::string m_nickname;
 
     size_t m_level {0};
-    size_t m_experience {0};
 };
 
 } // namespace fw
