@@ -17,7 +17,7 @@ const LoginMenu& LoginMenu::getInstance()
 
 LoginMenu::LoginMenu()
 {
-    InputMenuItem* loginInput = new InputMenuItem("\n> ");
+    auto* loginInput = new InputMenuItem("\n> ");
 
     addMenuItem(std::make_unique<TitleMenuItem>("Login"));
     addMenuItem(std::make_unique<TextMenuItem>("Please, enter your nickname."));
@@ -26,20 +26,13 @@ LoginMenu::LoginMenu()
     addMenuItem(std::unique_ptr<InputMenuItem>(loginInput));
 
     loginInput->invokeOnResultSet([](const std::string& input) {
-        if (input == "0")
-        {
-            std::exit(0);
-        }
-        else
+        Terminal::popMenuStack(); // Removing login menu itself.
+
+        if (input != "0")
         {
             Player::getInstance().setNickname(input);
 
-            while (true)
-            {
-                Terminal::clear();
-
-                Terminal::display(&MainMenu::getInstance());
-            }
+            Terminal::pushMenuStack(&MainMenu::getInstance());
         }
     });
 }

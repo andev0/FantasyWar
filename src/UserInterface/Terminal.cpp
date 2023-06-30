@@ -83,6 +83,26 @@ void Terminal::display(const Menu* menu)
     processInput(menu, inputItem.getResult());
 }
 
+bool Terminal::displayTopmostMenu()
+{
+    if (m_menuStack.empty())
+        return false;
+
+    display(m_menuStack.top());
+
+    return true;
+}
+
+void Terminal::pushMenuStack(const Menu* menu)
+{
+    m_menuStack.push(menu);
+}
+
+void Terminal::popMenuStack()
+{
+    m_menuStack.pop();
+}
+
 void Terminal::notify(const std::string& text)
 {
     printLine(text);

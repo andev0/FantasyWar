@@ -23,6 +23,12 @@ public:
     static void display(MenuItem* menuItem);
     static void display(const Menu* menu);
 
+    // Returns false if menu stack is empty.
+    static bool displayTopmostMenu();
+
+    static void pushMenuStack(const Menu* menu);
+    static void popMenuStack();
+
     static void notify(const std::string& text);
 
     static std::string readLine();
@@ -30,6 +36,8 @@ public:
     static void clear();
 
 private:
+    static inline std::stack<const Menu*> m_menuStack {};
+
     static inline Formatter m_formatter {};
 
     static void processInput(const Menu* menu, const std::string& input);

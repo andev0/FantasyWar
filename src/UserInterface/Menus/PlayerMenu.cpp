@@ -17,7 +17,7 @@ const PlayerMenu& PlayerMenu::getInstance()
 
 PlayerMenu::PlayerMenu()
 {
-    addMenuItem(std::make_unique<TitleMenuItem>("Statistics"));
+    addMenuItem(std::make_unique<TitleMenuItem>("Player"));
 
     addMenuItem(std::make_unique<DynamicTextMenuItem>([] {
         return Player::getInstance().getNickname() + " ("

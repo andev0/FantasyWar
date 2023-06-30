@@ -7,7 +7,12 @@
 
 int main()
 {
-    fw::Terminal::display(&fw::LoginMenu::getInstance());
+    fw::Terminal::pushMenuStack(&fw::LoginMenu::getInstance());
+
+    do
+    {
+        fw::Terminal::clear();
+    } while (fw::Terminal::displayTopmostMenu());
 
     return 0;
 }

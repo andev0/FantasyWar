@@ -25,7 +25,7 @@ MainMenu::MainMenu()
     }));
 
     auto exitGame = [] {
-        YesNoPrompt exitPrompt("Are you sure you want to exit?", std::bind(std::exit, 0),
+        YesNoPrompt exitPrompt("Are you sure you want to exit?", Terminal::popMenuStack,
                                [] {});
 
         Terminal::display(&exitPrompt);
@@ -33,6 +33,7 @@ MainMenu::MainMenu()
 
     addMenuOption("Exit the game", exitGame);
     addMenuOption("Player", [] {
+        Terminal::clear();
         Terminal::display(&PlayerMenu::getInstance());
     });
 
