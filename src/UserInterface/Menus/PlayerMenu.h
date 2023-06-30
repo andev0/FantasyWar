@@ -13,6 +13,12 @@ public:
     static const PlayerMenu& getInstance();
 
 private:
+    class UpgradeMenu : public Menu
+    {
+    public:
+        UpgradeMenu(const std::string& skillName, size_t& skillToUpgrade);
+    };
+
     PlayerMenu();
 };
 

@@ -11,7 +11,7 @@ namespace fw
 class InputMenuItem : public MenuItem
 {
 public:
-    explicit InputMenuItem(const std::string& inputPrefix = "> ");
+    explicit InputMenuItem(const std::string& inputPrefix = "\n> ");
 
     const std::string& getText() const override;
 

@@ -17,7 +17,7 @@ const LoginMenu& LoginMenu::getInstance()
 
 LoginMenu::LoginMenu()
 {
-    auto* loginInput = new InputMenuItem("\n> ");
+    auto* loginInput = new InputMenuItem();
 
     addMenuItem(std::make_unique<TitleMenuItem>("Login"));
     addMenuItem(std::make_unique<TextMenuItem>("Please, enter your nickname."));

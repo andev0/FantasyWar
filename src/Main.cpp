@@ -9,10 +9,8 @@ int main()
 {
     fw::Terminal::pushMenuStack(&fw::LoginMenu::getInstance());
 
-    do
-    {
-        fw::Terminal::clear();
-    } while (fw::Terminal::displayTopmostMenu());
+    while (fw::Terminal::displayTopmostMenu())
+    { };
 
     return 0;
 }

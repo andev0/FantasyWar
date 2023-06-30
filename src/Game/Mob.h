@@ -26,7 +26,6 @@ protected:
     void setHealth(size_t health);
     void setMaxHealth(size_t maxHealth);
 
-private:
     size_t m_health {10};
     size_t m_maxHealth {10};
 

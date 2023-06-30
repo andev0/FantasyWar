@@ -35,6 +35,8 @@ public:
 
     static void clear();
 
+    static const Formatter& getFormatter();
+
 private:
     static inline std::stack<const Menu*> m_menuStack {};
 

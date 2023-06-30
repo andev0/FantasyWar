@@ -33,8 +33,7 @@ MainMenu::MainMenu()
 
     addMenuOption("Exit the game", exitGame);
     addMenuOption("Player", [] {
-        Terminal::clear();
-        Terminal::display(&PlayerMenu::getInstance());
+        Terminal::pushMenuStack(&PlayerMenu::getInstance());
     });
 
     addCommand("exit", exitGame);

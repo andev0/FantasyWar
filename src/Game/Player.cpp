@@ -24,9 +24,53 @@ size_t Player::getLevel() const
     return m_level;
 }
 
+size_t Player::getGoldAmount() const
+{
+    return m_goldAmount;
+}
+
+size_t Player::getSkillPointsAmount() const
+{
+    return m_skillPointsAmount;
+}
+
 void Player::incrementLevel()
 {
     ++m_level;
+}
+
+void Player::gainGold(size_t amount)
+{
+    m_goldAmount = amount;
+}
+
+void Player::gainSkillPoints(size_t amount)
+{
+    m_skillPointsAmount = amount;
+}
+
+void Player::spendGold(size_t amount)
+{
+    if (m_goldAmount > amount)
+    {
+        m_goldAmount -= amount;
+    }
+    else
+    {
+        m_goldAmount = 0;
+    }
+}
+
+void Player::spendSkillPoints(size_t amount)
+{
+    if (m_skillPointsAmount > amount)
+    {
+        m_skillPointsAmount -= amount;
+    }
+    else
+    {
+        m_skillPointsAmount = 0;
+    }
 }
 
 void Player::setNickname(const std::string& nickname)

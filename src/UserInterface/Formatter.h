@@ -33,12 +33,12 @@ public:
         WHITE
     };
 
-    virtual std::string applyColor(const std::string& text, DarkColor color);
-    virtual std::string applyColor(const std::string& text, BrightColor color);
+    virtual std::string applyColor(const std::string& text, DarkColor color) const;
+    virtual std::string applyColor(const std::string& text, BrightColor color) const;
 
-    virtual std::string getColorCode(DarkColor color);
-    virtual std::string getColorCode(BrightColor color);
-    virtual std::string getResetColorCode();
+    virtual std::string getColorCode(DarkColor color) const;
+    virtual std::string getColorCode(BrightColor color) const;
+    virtual std::string getResetColorCode() const;
 
     virtual ~Formatter() = default;
 };

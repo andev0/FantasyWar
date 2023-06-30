@@ -24,9 +24,9 @@ void Terminal::display(MenuItem* menuItem)
 
     using Color = Formatter::BrightColor;
 
-    if (auto inputItem = dynamic_cast<PauseMenuItem*>(menuItem))
+    if (dynamic_cast<PauseMenuItem*>(menuItem) != nullptr)
     {
-        printLine(inputItem->getText());
+        printLine(menuItem->getText());
 
         readLine();
     }
@@ -77,7 +77,6 @@ void Terminal::display(const Menu* menu)
         return;
     }
 
-    printLine();
     display(&inputItem);
 
     processInput(menu, inputItem.getResult());
@@ -87,6 +86,8 @@ bool Terminal::displayTopmostMenu()
 {
     if (m_menuStack.empty())
         return false;
+
+    clear();
 
     display(m_menuStack.top());
 
@@ -123,6 +124,11 @@ std::string Terminal::readLine()
 void Terminal::clear()
 {
     system("clear");
+}
+
+const Formatter& Terminal::getFormatter()
+{
+    return m_formatter;
 }
 
 void Terminal::processInput(const Menu* menu, const std::string& input)
