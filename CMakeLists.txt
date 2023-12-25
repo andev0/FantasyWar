@@ -1,6 +1,8 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 
 project(FantasyWar)
+
+set(CMAKE_CXX_STANDARD 17)
 
 include_directories(src)
 
@@ -10,20 +12,9 @@ aux_source_directory(src/UserInterface/MenuItems SRC_MENUITEMS_DIR)
 aux_source_directory(src/UserInterface/Menus SRC_MENUS_DIR)
 aux_source_directory(src/Game SRC_GAME_DIR)
 
-add_compile_options(-Wall --std=c++17)
+add_compile_options(-Wall)
 
-set(BUILD_MODE Release CACHE STRING "Build mode for the project.")
-set_property(CACHE BUILD_MODE PROPERTY STRINGS "Release" "Debug")
-
-message(${BUILD_MODE} " build mode is set.")
-
-if (BUILD_MODE STREQUAL Release)
-    add_compile_options(-O2)
-elseif(BUILD_MODE STREQUAL Debug)
-    add_compile_options(-O0 -g)
-else()
-    message(FATAL_ERROR "Unknown build mode: " ${BUILD_MODE})
-endif()
+message(${CMAKE_BUILD_TYPE} " build mode is set.")
 
 add_executable(${PROJECT_NAME} ${SRC_DIR}
                                ${SRC_USERINTERFACE_DIR}

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stack>
 #include <assert.h>
 
 #include "MenuItems/TitleMenuItem.h"

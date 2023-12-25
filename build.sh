@@ -12,12 +12,12 @@ mkdir -p build
 cd build
 
 if [[ $1 = "debug" ]]; then
-    cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DBUILD_MODE=Debug
+    cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug
 else
-    cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DBUILD_MODE=Release
+    cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Release
 fi 
 
-make -j7
+cmake --build . --parallel 7
 
 echo -e "\n\e[93mStarting static check.\e[0m\n"
 
