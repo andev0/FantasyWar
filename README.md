@@ -21,7 +21,7 @@ cmake --build .
 #### Cmake variables
 Use BUILD_MODE to specify either Release or Debug build mode:
 ```
-cmake .. -DBUILD_MODE=Debug
+cmake .. -DCMAKE_BUILD_TYPE=Debug
 ```
 > Release build mode is used by default.
 
